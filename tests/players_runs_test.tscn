@@ -243,3 +243,6 @@ shape = SubResource("BoxShape3D_vfbn7")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="BoxObject5"]
 mesh = SubResource("BoxMesh_je17x")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.995955, 0.0898504, 0, -0.00779973, 0.0864568, 0.996225, 0.0895112, -0.992196, 0.086808, 0, 66.3084, 0)
