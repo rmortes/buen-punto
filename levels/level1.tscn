@@ -1,10 +1,13 @@
-[gd_scene load_steps=18 format=3 uid="uid://bah68hxi30kdb"]
+[gd_scene load_steps=21 format=3 uid="uid://bah68hxi30kdb"]
 
 [ext_resource type="Script" path="res://scripts/ded.gd" id="1_tooek"]
 [ext_resource type="PackedScene" uid="uid://cqtyh0ki2darr" path="res://assets/player/player.tscn" id="1_vm66x"]
 [ext_resource type="Texture2D" uid="uid://co8qu0ls7wet6" path="res://assets/skybox_material/Spacebox.png" id="3_0marq"]
 [ext_resource type="PackedScene" uid="uid://cedvs0kn462ks" path="res://scenes/bubble.tscn" id="4_pjara"]
-[ext_resource type="PackedScene" uid="uid://bexknyicuyho3" path="res://components/grav_ball/collectable_ball.tscn" id="5_urojk"]
+[ext_resource type="PackedScene" path="res://components/grav_ball/collectable_ball.tscn" id="5_urojk"]
+[ext_resource type="Script" path="res://scripts/fade_in.gd" id="6_g4p3c"]
+[ext_resource type="PackedScene" uid="uid://drk5it48qvh2r" path="res://scenes/capsule.tscn" id="7_p25v7"]
+[ext_resource type="Script" path="res://scripts/color_rect.gd" id="8_sjgqu"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_q3n03"]
 panorama = ExtResource("3_0marq")
@@ -32,8 +35,8 @@ sky = SubResource("Sky_w2exd")
 
 [sub_resource type="BoxMesh" id="BoxMesh_eu7ie"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_hwn3u"]
-size = Vector3(321.54, 1, 367.522)
+[sub_resource type="BoxShape3D" id="BoxShape3D_cd0q2"]
+size = Vector3(236.926, 0.001, 293.956)
 
 [node name="Node3D2" type="Node3D"]
 script = ExtResource("1_tooek")
@@ -917,3 +920,34 @@ shape = SubResource("BoxShape3D_fx4xw")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="BoxObject51"]
 mesh = SubResource("BoxMesh_eu7ie")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -61.6876, -29.2254, -146.478)
+shape = SubResource("BoxShape3D_cd0q2")
+
+[node name="Capsule" parent="." instance=ExtResource("7_p25v7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.011, 2.96841, -213.778)
+
+[node name="FadeIn" type="ColorRect" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0962047, 0.0962048, 0.0962047, 1)
+script = ExtResource("6_g4p3c")
+
+[node name="FadeOut" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0962047, 0.0962048, 0.0962047, 1)
+script = ExtResource("8_sjgqu")
+fade_duration = 0.8
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
