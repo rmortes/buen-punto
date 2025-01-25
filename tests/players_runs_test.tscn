@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://kll1prorg4if"]
+
+[ext_resource type="PackedScene" uid="uid://cqtyh0ki2darr" path="res://assets/player/player.tscn" id="1_n2y4j"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_geqhd"]
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+
+[node name="PlayersRunsTest" type="Node3D"]
+
+[node name="Player" parent="." instance=ExtResource("1_n2y4j")]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(10.8048, 0, 0, 0, 1.00412, 0, 0, 0, 27.913, 0, 0, 0)
+use_collision = true
+material = SubResource("StandardMaterial3D_geqhd")
