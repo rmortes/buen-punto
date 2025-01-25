@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cua7jf0437ux6"
-path="res://.godot/imported/viga4.glb-e7fa04d3a63c98c87166eaed76d7efa1.scn"
+uid="uid://bv4l0tdkuqu43"
+path="res://.godot/imported/plat3.glb-61414cfe4efb667771dcd057dc6e6ce4.scn"
 
 [deps]
 
-source_file="res://assets/terrain/viga4.glb"
-dest_files=["res://.godot/imported/viga4.glb-e7fa04d3a63c98c87166eaed76d7efa1.scn"]
+source_file="res://assets/terrain/plat3.glb"
+dest_files=["res://.godot/imported/plat3.glb-61414cfe4efb667771dcd057dc6e6ce4.scn"]
 
 [params]
 
@@ -33,7 +33,7 @@ animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
 "nodes": {
-"PATH:Antenna_broken_2": {
+"PATH:Solar_big_broken_2": {
 "generate/physics": true,
 "physics/shape_type": 2
 }

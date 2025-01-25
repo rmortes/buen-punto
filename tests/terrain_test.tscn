@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dur48tbbhwqf1"]
+[gd_scene load_steps=27 format=3 uid="uid://dur48tbbhwqf1"]
 
 [ext_resource type="PackedScene" uid="uid://cqtyh0ki2darr" path="res://assets/player/player.tscn" id="1_c45dc"]
 [ext_resource type="Texture2D" uid="uid://co8qu0ls7wet6" path="res://assets/skybox_material/Spacebox.png" id="3_qprbq"]
@@ -15,6 +15,14 @@
 [ext_resource type="PackedScene" uid="uid://j2cb01gu6hoj" path="res://assets/terrain/viga6.glb" id="13_ffocv"]
 [ext_resource type="PackedScene" uid="uid://bryewbbf0r2q6" path="res://assets/terrain/viga5.glb" id="14_l6bss"]
 [ext_resource type="PackedScene" uid="uid://cua7jf0437ux6" path="res://assets/terrain/viga4.glb" id="15_2i1bc"]
+[ext_resource type="PackedScene" uid="uid://becn762jxyv5s" path="res://assets/terrain/plat1.glb" id="16_x0ae7"]
+[ext_resource type="PackedScene" uid="uid://bowtcd48852p3" path="res://assets/terrain/plat2.glb" id="17_r21a6"]
+[ext_resource type="PackedScene" uid="uid://bv4l0tdkuqu43" path="res://assets/terrain/plat3.glb" id="18_we2li"]
+[ext_resource type="PackedScene" uid="uid://b8q5r1vc4kl0q" path="res://assets/terrain/plat4.glb" id="19_c17m4"]
+[ext_resource type="PackedScene" uid="uid://bjcrk7kvuarti" path="res://assets/terrain/plat5.glb" id="20_0sfh6"]
+[ext_resource type="PackedScene" uid="uid://dixs31dguyfwa" path="res://assets/terrain/plat6.glb" id="21_jq6bm"]
+[ext_resource type="PackedScene" uid="uid://byfomkrbdriy0" path="res://assets/terrain/plat7.glb" id="22_8tkt2"]
+[ext_resource type="PackedScene" uid="uid://d5y7ck7foip" path="res://assets/terrain/tanque.glb" id="23_0ce3f"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_wlf7t"]
 panorama = ExtResource("3_qprbq")
@@ -73,8 +81,34 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -181.904, 133.773, -41.1844)
 [node name="viga6" parent="." instance=ExtResource("13_ffocv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -173.803, 135.189, -39.6517)
 
-[node name="viga5" parent="." instance=ExtResource("14_l6bss")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -211.873, 151.181, -33.4893)
-
 [node name="viga4" parent="." instance=ExtResource("15_2i1bc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -213.155, 151.848, -35.2291)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -216.887, 151.527, -33.9601)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="plat1" parent="." instance=ExtResource("16_x0ae7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -209.078, 152.972, -52.9872)
+
+[node name="plat2" parent="." instance=ExtResource("17_r21a6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -208.323, 152.439, -51.086)
+
+[node name="plat3" parent="." instance=ExtResource("18_we2li")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -209.013, 152.735, -47.9053)
+
+[node name="plat4" parent="." instance=ExtResource("19_c17m4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -211.837, 152.715, -45.6985)
+
+[node name="plat5" parent="." instance=ExtResource("20_0sfh6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -215.981, 152.964, -46.3604)
+
+[node name="plat6" parent="." instance=ExtResource("21_jq6bm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -217.849, 152.211, -48.4677)
+
+[node name="plat7" parent="." instance=ExtResource("22_8tkt2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -216.735, 153.259, -47.081)
+
+[node name="tanque" parent="." instance=ExtResource("23_0ce3f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -221.836, 150.572, -44.8228)
+
+[node name="viga5" parent="." instance=ExtResource("14_l6bss")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -211.186, 152.839, -32.6566)
