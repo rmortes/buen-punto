@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://blqpy8qi7hijb"
+path="res://.godot/imported/1 zasranets.mp3-715996094ebff32b7075975397a4bf28.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/1 zasranets.mp3"
+dest_files=["res://.godot/imported/1 zasranets.mp3-715996094ebff32b7075975397a4bf28.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

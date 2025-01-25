@@ -35,7 +35,7 @@ func _process(delta: float) -> void:
 		or (not was_on_floor and character_body_3d.is_on_floor())
 	):
 		var step = randi_range(0, len(steps)-1)
-		SoundManager.play_sound(steps[step]).volume_db = 8
+		SoundManager.play_sound(steps[step], "Space").volume_db = 8
 	
 	was_on_floor = character_body_3d.is_on_floor()
 	
@@ -46,4 +46,4 @@ func _on_timeout() -> void:
 		or Input.is_action_pressed("ui_right")
 		) and character_body_3d.is_on_floor():
 		var step = randi_range(0, len(steps)-1)
-		SoundManager.play_sound(steps[step])
+		SoundManager.play_sound(steps[step], "Space")

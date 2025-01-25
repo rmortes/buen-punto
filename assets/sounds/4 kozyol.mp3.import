@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bmmd4kjj77qy6"
+path="res://.godot/imported/4 kozyol.mp3-f10ebd21572285517ef1aceaba2d329b.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/4 kozyol.mp3"
+dest_files=["res://.godot/imported/4 kozyol.mp3-f10ebd21572285517ef1aceaba2d329b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

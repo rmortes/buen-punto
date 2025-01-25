@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cqtyh0ki2darr"]
+[gd_scene load_steps=16 format=3 uid="uid://cqtyh0ki2darr"]
 
 [ext_resource type="Script" path="res://scripts/body.gd" id="1_1ygd6"]
 [ext_resource type="Script" path="res://scripts/label.gd" id="2_67hic"]
@@ -7,6 +7,8 @@
 [ext_resource type="Script" path="res://scripts/low_oxygen_effect.gd" id="5_qf8g2"]
 [ext_resource type="Script" path="res://assets/player/ball_spitter.gd" id="6_bfcna"]
 [ext_resource type="Script" path="res://assets/player/boots.gd" id="7_sg4of"]
+[ext_resource type="Script" path="res://addons/label_font_auto_sizer/label_auto_sizer.gd" id="8_i4scn"]
+[ext_resource type="FontFile" uid="uid://caqb8y06jsmhp" path="res://assets/fonts/Kremlin Premier.ttf" id="8_qthw6"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lxi17"]
 
@@ -42,6 +44,13 @@ shader_parameter/PulseSpeed = 3.0
 shader_parameter/PulsePower = 0.2
 shader_parameter/OverlayEffect = ExtResource("4_cu5hx")
 shader_parameter/TintGradient = SubResource("GradientTexture2D_om3rd")
+
+[sub_resource type="LabelSettings" id="LabelSettings_3d00x"]
+font = ExtResource("8_qthw6")
+font_size = 42
+font_color = Color(0.283188, 0.614304, 0.89757, 1)
+outline_size = 6
+outline_color = Color(0, 0, 0, 1)
 
 [node name="Player" type="Node3D" groups=["player"]]
 
@@ -98,5 +107,23 @@ script = ExtResource("6_bfcna")
 wait_time = 0.25
 autostart = true
 script = ExtResource("7_sg4of")
+
+[node name="Subtitulos" type="Label" parent="."]
+anchors_preset = -1
+anchor_top = 0.84
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -0.320007
+offset_bottom = -59.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 32
+label_settings = SubResource("LabelSettings_3d00x")
+horizontal_alignment = 1
+clip_text = true
+script = ExtResource("8_i4scn")
+_max_size = 42
+_current_font_size = 42
+_editor_defaults_set = true
 
 [connection signal="timeout" from="Boots" to="Boots" method="_on_timeout"]

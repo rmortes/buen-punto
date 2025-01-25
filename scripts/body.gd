@@ -24,15 +24,25 @@ var target_camera_tilt: float = 0.0
 var landing : bool = false
 
 var time_accelerating = 0;
+var prev_speed;
 
 # TODO: Esto lo podemos poner en las settings cuando hayan
 var mouse_sensitivity = 0.002
 
 
+const shouts = [
+	[preload("res://assets/sounds/1 zasranets.mp3"), "Засранец", "aaa"],
+	[preload("res://assets/sounds/2 idi v banyu.mp3"), "Иди в баню!", "aaa"],
+	[preload("res://assets/sounds/3 Idi na hui.mp3"), "Иди на хуй", "aaa"],
+	[preload("res://assets/sounds/4 kozyol.mp3"), "Козёл", "aaa"],
+	[preload("res://assets/sounds/5 mudak.mp3"), "Мудак", "aaa"],
+	[preload("res://assets/sounds/7 svolotsch.mp3"), "Сволочь", "aaa"],
+	[preload("res://assets/sounds/8 hui s gory.mp3"), "Хуй с горы", "aaa"],
+];
+
+
 func _physics_process(delta: float) -> void:
-	
 	#Coyote jump checkout
-	
 	if is_on_floor():
 		coyote_timer = coyote_time
 		if landing:
@@ -123,9 +133,14 @@ func _process(delta: float):
 		camera.rotate_x(-yAxis * delta * JOY_ROTATION_MULTIPLIER/2)
 		camera.rotation.x = clampf(camera.rotation.x, -deg_to_rad(70), deg_to_rad(70))
 	
+	if prev_speed and prev_speed - velocity.length() > 10:
+		var shoutI = randi_range(0, len(shouts)-1)
+		var shout = shouts[shoutI]
+		SoundManager.play_sound(shout[0], "Voice").finished.connect(func(): $"../Subtitulos".text = '')
+		$"../Subtitulos".text = shout[1] + '\n' + shout[2]
+	prev_speed = velocity.length()
 	
 func _tilt_camera_on_landing():
-	
 	if _is_any_movement_action_pressed():
 		return
 	

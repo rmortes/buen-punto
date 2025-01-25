@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ce8hd5ggms2dm"
+path="res://.godot/imported/2 idi v banyu.mp3-47b646abb9cbf1e056ceb5eb58399671.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/2 idi v banyu.mp3"
+dest_files=["res://.godot/imported/2 idi v banyu.mp3-47b646abb9cbf1e056ceb5eb58399671.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
