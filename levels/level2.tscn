@@ -1,9 +1,13 @@
-[gd_scene load_steps=24 format=3 uid="uid://0irdakywmk86"]
+[gd_scene load_steps=29 format=3 uid="uid://0irdakywmk86"]
 
 [ext_resource type="PackedScene" uid="uid://cqtyh0ki2darr" path="res://assets/player/player.tscn" id="1_butoy"]
+[ext_resource type="Script" path="res://scripts/ded.gd" id="1_lsure"]
 [ext_resource type="Texture2D" uid="uid://co8qu0ls7wet6" path="res://assets/skybox_material/Spacebox.png" id="2_k6lkf"]
 [ext_resource type="PackedScene" uid="uid://cedvs0kn462ks" path="res://scenes/bubble.tscn" id="3_xxdsb"]
-[ext_resource type="PackedScene" uid="uid://bexknyicuyho3" path="res://components/grav_ball/collectable_ball.tscn" id="4_baq73"]
+[ext_resource type="PackedScene" path="res://components/grav_ball/collectable_ball.tscn" id="4_baq73"]
+[ext_resource type="PackedScene" uid="uid://drk5it48qvh2r" path="res://scenes/capsule.tscn" id="5_er745"]
+[ext_resource type="Script" path="res://scripts/fade_in.gd" id="6_4b644"]
+[ext_resource type="Script" path="res://scripts/color_rect.gd" id="7_ihw75"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_oirp1"]
 panorama = ExtResource("2_k6lkf")
@@ -47,7 +51,11 @@ sky = SubResource("Sky_ip5ns")
 
 [sub_resource type="SphereMesh" id="SphereMesh_1r4d7"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_r7t0f"]
+size = Vector3(2497.62, 0.001, 2581.3)
+
 [node name="Node3D" type="Node3D"]
+script = ExtResource("1_lsure")
 
 [node name="Player" parent="." instance=ExtResource("1_butoy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -21.2208)
@@ -695,8 +703,48 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50.9374, 25.9659, -221.814)
 [node name="CollectableBall20" parent="." instance=ExtResource("4_baq73")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.441, 27.5955, -256.717)
 
+[node name="CollectableBall22" parent="." instance=ExtResource("4_baq73")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.97869, 5.2543, -301.988)
+
+[node name="CollectableBall23" parent="." instance=ExtResource("4_baq73")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.6368, 1.79028, -317.114)
+
 [node name="CollectableBall21" parent="." instance=ExtResource("4_baq73")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.9142, 29.9868, -162.274)
 
 [node name="Bubble16" parent="." instance=ExtResource("3_xxdsb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52.213, 25.517, -218.816)
+
+[node name="Bubble17" parent="." instance=ExtResource("3_xxdsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.53303, 5.00193, -325.585)
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.1215, -29.2254, -541.031)
+shape = SubResource("BoxShape3D_r7t0f")
+
+[node name="Capsule" parent="." instance=ExtResource("5_er745")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.6335, 7.95047, -315.413)
+
+[node name="FadeIn" type="ColorRect" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0962047, 0.0962048, 0.0962047, 1)
+script = ExtResource("6_4b644")
+
+[node name="FadeOut" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0962047, 0.0962048, 0.0962047, 1)
+script = ExtResource("7_ihw75")
+fade_duration = 0.8
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
