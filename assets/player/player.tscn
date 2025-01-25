@@ -88,6 +88,26 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("5_qf8g2")
 
+[node name="Subtitulos" type="Label" parent="CharacterBody3D/Camera/CanvasLayer"]
+z_index = 100
+z_as_relative = false
+anchors_preset = -1
+anchor_top = 0.84
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -3.32001
+offset_bottom = -59.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 32
+label_settings = SubResource("LabelSettings_3d00x")
+horizontal_alignment = 1
+clip_text = true
+script = ExtResource("8_i4scn")
+_max_size = 42
+_current_font_size = 42
+_editor_defaults_set = true
+
 [node name="OxygenTimer" type="Timer" parent="CharacterBody3D"]
 unique_name_in_owner = true
 wait_time = 20.0
@@ -106,23 +126,5 @@ script = ExtResource("6_bfcna")
 wait_time = 0.25
 autostart = true
 script = ExtResource("7_sg4of")
-
-[node name="Subtitulos" type="Label" parent="."]
-anchors_preset = -1
-anchor_top = 0.84
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -0.320007
-offset_bottom = -59.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_font_sizes/font_size = 32
-label_settings = SubResource("LabelSettings_3d00x")
-horizontal_alignment = 1
-clip_text = true
-script = ExtResource("8_i4scn")
-_max_size = 42
-_current_font_size = 42
-_editor_defaults_set = true
 
 [connection signal="timeout" from="Boots" to="Boots" method="_on_timeout"]

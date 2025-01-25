@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cqtyh0ki2darr" path="res://assets/player/player.tscn" id="1_c45dc"]
 [ext_resource type="Texture2D" uid="uid://co8qu0ls7wet6" path="res://assets/skybox_material/Spacebox.png" id="3_qprbq"]
 [ext_resource type="PackedScene" uid="uid://5chc26ks5boh" path="res://assets/terrain/plataforma1.glb" id="4_5qfb1"]
-[ext_resource type="PackedScene" path="res://scenes/capsule.tscn" id="5_pafk1"]
+[ext_resource type="PackedScene" uid="uid://drk5it48qvh2r" path="res://scenes/capsule.tscn" id="5_pafk1"]
 [ext_resource type="PackedScene" uid="uid://c7bfugkv4j4jk" path="res://assets/terrain/suelo.glb" id="5_qxnmf"]
 [ext_resource type="PackedScene" uid="uid://14x5k7defuvp" path="res://assets/terrain/pedrolo1.glb" id="6_pukmn"]
 [ext_resource type="PackedScene" uid="uid://bj4t86ggxjoha" path="res://assets/terrain/pedrolo2.glb" id="7_uimm6"]
