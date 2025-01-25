@@ -20,7 +20,6 @@ var is_tilting: bool = false
 var target_camera_tilt: float = 0.0
 @onready var camera: Camera3D = %Camera
 
-
 var landing : bool = false
 
 var time_accelerating = 0;
@@ -136,8 +135,8 @@ func _process(delta: float):
 	if prev_speed and prev_speed - velocity.length() > 10:
 		var shoutI = randi_range(0, len(shouts)-1)
 		var shout = shouts[shoutI]
-		SoundManager.play_sound(shout[0], "Voice").finished.connect(func(): $"../Subtitulos".text = '')
-		$"../Subtitulos".text = shout[1] + '\n' + shout[2]
+		SoundManager.play_sound(shout[0], "Voice").finished.connect(func(): $Camera/CanvasLayer/Subtitulos.text = '')
+		$Camera/CanvasLayer/Subtitulos.text = shout[1] + '\n' + shout[2]
 	prev_speed = velocity.length()
 	
 func _tilt_camera_on_landing():
