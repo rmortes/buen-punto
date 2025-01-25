@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cgy0fpvliphr2"]
+[gd_scene load_steps=5 format=3 uid="uid://cgy0fpvliphr2"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_7peac"]
 [ext_resource type="Texture2D" uid="uid://bds1nd4g4ly6h" path="res://assets/materials/Blank_button.png" id="2_wwt53"]
 [ext_resource type="Script" path="res://scripts/fade_in.gd" id="3_17i7g"]
+[ext_resource type="Script" path="res://scripts/focus.gd" id="3_ctxqr"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -35,6 +36,7 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 texture_normal = ExtResource("2_wwt53")
+script = ExtResource("3_ctxqr")
 
 [node name="Label" type="Label" parent="TextureRect/TextureButton"]
 layout_mode = 0

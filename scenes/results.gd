@@ -19,3 +19,9 @@ func _process(delta):
 func _on_button_2_pressed():
 	var scene_path = LevelData.LEVEL_PATH + str(LevelData.level) + ".tscn"
 	fade_in.start_fade_out(scene_path)
+
+
+func _on_button_pressed():
+	LevelData.level -= 1
+	var scene_path = LevelData.LEVEL_PATH + str(LevelData.level) + ".tscn"
+	fade_in.start_fade_out(scene_path)
