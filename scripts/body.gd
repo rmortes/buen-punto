@@ -54,7 +54,8 @@ func _physics_process(delta: float) -> void:
 		coyote_timer = 0
 	
 	# Handle jump (con mando de PS5)
-	if Input.is_action_just_pressed("ui_accept") or Input.is_joy_button_pressed(0, JOY_BUTTON_X):
+	if Input.is_action_just_pressed("ui_accept") or Input.is_action_just_pressed("jump"):
+		print("jumpppp")
 		if coyote_timer > 0:
 			velocity.y = jump_velocity
 		landing = true
