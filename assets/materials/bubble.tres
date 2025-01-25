@@ -1,0 +1,6 @@
+[gd_resource type="SphereMesh" load_steps=2 format=3 uid="uid://borkv38kdoyxw"]
+
+[ext_resource type="Material" uid="uid://dm77a2is2df6j" path="res://assets/shaders/soap_bubble.tres" id="1_htjfq"]
+
+[resource]
+material = ExtResource("1_htjfq")

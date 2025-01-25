@@ -1,10 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://cedvs0kn462ks"]
+[gd_scene load_steps=4 format=3 uid="uid://cedvs0kn462ks"]
 
 [ext_resource type="Script" path="res://scripts/bubble_component.gd" id="1_w471k"]
-[ext_resource type="Material" uid="uid://dm77a2is2df6j" path="res://assets/shaders/soap_bubble.tres" id="2_g11jt"]
-
-[sub_resource type="SphereMesh" id="SphereMesh_euygy"]
-material = ExtResource("2_g11jt")
+[ext_resource type="SphereMesh" uid="uid://borkv38kdoyxw" path="res://assets/materials/bubble.tres" id="2_vhaq3"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_6h053"]
 radius = 1.2
@@ -14,7 +11,7 @@ script = ExtResource("1_w471k")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
-mesh = SubResource("SphereMesh_euygy")
+mesh = ExtResource("2_vhaq3")
 
 [node name="Area3D" type="Area3D" parent="."]
 
