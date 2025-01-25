@@ -24,5 +24,5 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_released("game_ball"):
 		var new_ball = GRAV_BALL.instantiate()
 		new_ball.global_position = currentPhantomBall.global_position
-		call_deferred("queue_free",currentPhantomBall)
+		currentPhantomBall.queue_free()
 		call_deferred("add_child",new_ball)

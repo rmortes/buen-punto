@@ -76,6 +76,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("5_qf8g2")
+can_die = false
 
 [node name="OxygenTimer" type="Timer" parent="CharacterBody3D"]
 unique_name_in_owner = true

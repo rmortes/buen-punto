@@ -1,9 +1,10 @@
 extends ColorRect
 @onready var oxygen_timer = %OxygenTimer
 
-var danger_threshold_start : float = 15.0
-var last_moments_left : float = 3.0
-var max_value : float = 3.0
+@export var danger_threshold_start : float = 15.0
+@export var last_moments_left : float = 3.0
+@export var max_value : float = 3.0
+@export var can_die := true;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -15,7 +16,7 @@ func _process(delta):
 	var time_left = oxygen_timer.time_left - last_moments_left
 	if time_left < danger_threshold_start and time_left > 0.0:
 		var value = calculate_increment(time_left, danger_threshold_start, max_value)
-		self.material.set_shader_parameter("EffectStrength", value)
+		self.material.set_shader_parameter("EffectStrength", value if can_die else 0)
 
 func calculate_increment(time_left: float, time_start: float, max_value: float) -> float:
 	# Calcula la proporción del tiempo restante

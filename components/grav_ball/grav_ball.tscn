@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://6r51jirvlm33"]
+[gd_scene load_steps=11 format=3 uid="uid://6r51jirvlm33"]
 
+[ext_resource type="Script" path="res://components/grav_ball/grav_ball.gd" id="1_84uma"]
 [ext_resource type="Shader" path="res://components/grav_ball/grav_ball.gdshader" id="1_nmu1e"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_i2tbs"]
@@ -24,7 +25,59 @@ height = 7.0
 [sub_resource type="SphereShape3D" id="SphereShape3D_xowfk"]
 radius = 3.0
 
+[sub_resource type="Animation" id="Animation_862jd"]
+resource_name = "GravBallAnimation"
+length = 15.0
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(15),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"kys"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FieldHint:mesh:material:shader_parameter/emission_amount")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 15),
+"transitions": PackedFloat32Array(1, 9.84917),
+"update": 0,
+"values": [10.647, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_76pqv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FieldHint:mesh:material:shader_parameter/emission_amount")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [10.647]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0xtgs"]
+_data = {
+"GravBallAnimation": SubResource("Animation_862jd"),
+"RESET": SubResource("Animation_76pqv")
+}
+
 [node name="GravBall" type="StaticBody3D"]
+script = ExtResource("1_84uma")
 
 [node name="Ball" type="MeshInstance3D" parent="."]
 mesh = SubResource("SphereMesh_i2tbs")
@@ -44,3 +97,9 @@ gravity = 48.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("SphereShape3D_xowfk")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_0xtgs")
+}
+autoplay = "GravBallAnimation"
