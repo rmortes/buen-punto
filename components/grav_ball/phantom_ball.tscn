@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cdg7mlirhthil"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mcqsu"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.792157)
+
+[sub_resource type="SphereMesh" id="SphereMesh_i2tbs"]
+material = SubResource("StandardMaterial3D_mcqsu")
+
+[node name="GravBall" type="StaticBody3D"]
+
+[node name="Ball" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_i2tbs")

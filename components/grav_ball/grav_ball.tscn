@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://6r51jirvlm33"]
+
+[ext_resource type="Shader" path="res://components/grav_ball/grav_ball.gdshader" id="1_nmu1e"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_i2tbs"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mg0aw"]
+render_priority = 0
+shader = ExtResource("1_nmu1e")
+shader_parameter/albedo = Color(0.237908, 0.355552, 0.797187, 1)
+shader_parameter/emission_color = Color(0.282353, 0.164706, 0.760784, 1)
+shader_parameter/emission_amount = 10.647
+shader_parameter/rim_steepness = 2.882
+shader_parameter/uv_scale = null
+shader_parameter/uv_offset = null
+
+[sub_resource type="SphereMesh" id="SphereMesh_3wi8i"]
+material = SubResource("ShaderMaterial_mg0aw")
+radius = 3.5
+height = 7.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_iax5u"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_xowfk"]
+radius = 3.0
+
+[node name="GravBall" type="StaticBody3D"]
+
+[node name="Ball" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_i2tbs")
+
+[node name="FieldHint" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_3wi8i")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_iax5u")
+
+[node name="Area3D" type="Area3D" parent="."]
+gravity_space_override = 3
+gravity_point = true
+gravity_point_center = Vector3(0, 0, 0)
+gravity_direction = Vector3(0, 0, 0)
+gravity = 48.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_xowfk")

@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://cqtyh0ki2darr"]
+[gd_scene load_steps=12 format=3 uid="uid://cqtyh0ki2darr"]
 
 [ext_resource type="Script" path="res://scripts/body.gd" id="1_1ygd6"]
 [ext_resource type="Script" path="res://scripts/label.gd" id="2_67hic"]
 [ext_resource type="Shader" path="res://shaders/lowOxygen.gdshader" id="3_swxta"]
 [ext_resource type="Texture2D" uid="uid://lv8jpdvkijsg" path="res://assets/materials/Puntos.png" id="4_cu5hx"]
 [ext_resource type="Script" path="res://scripts/low_oxygen_effect.gd" id="5_qf8g2"]
+[ext_resource type="Script" path="res://assets/player/ball_spitter.gd" id="6_bfcna"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lxi17"]
 
@@ -86,3 +87,6 @@ autostart = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.42514, 0)
 omni_range = 4096.0
 omni_attenuation = 0.694
+
+[node name="BallSpitter" type="Node" parent="."]
+script = ExtResource("6_bfcna")
