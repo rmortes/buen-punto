@@ -313,3 +313,31 @@ shape = SubResource("CapsuleShape3D_cuw1o")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D12"]
 mesh = SubResource("CapsuleMesh_5v7i5")
+
+[node name="BoxObject7" type="StaticBody3D" parent="." groups=["scene_manager_entity_nodes"]]
+transform = Transform3D(12.2546, 4.33827, 1.57577, -2.52398, 10.0417, -8.01707, -3.86434, 7.19884, 10.2334, 4.41702, 21.8123, -89.4069)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BoxObject7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0292439, 0)
+shape = SubResource("BoxShape3D_vfbn7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="BoxObject7"]
+mesh = SubResource("BoxMesh_je17x")
+
+[node name="Bubble2" parent="." instance=ExtResource("4_ksg7p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.0496, 23.2556, -63.3398)
+
+[node name="Bubble3" parent="." instance=ExtResource("4_ksg7p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.2293, 10.5793, -74.4663)
+
+[node name="Bubble4" parent="." instance=ExtResource("4_ksg7p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.8796, 4.50905, -40.2869)
+
+[node name="Bubble5" parent="." instance=ExtResource("4_ksg7p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.15566, 25.1444, -83.3271)
+
+[node name="Bubble7" parent="." instance=ExtResource("4_ksg7p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.9765, 7.47762, -32.6712)
+
+[node name="Bubble6" parent="." instance=ExtResource("4_ksg7p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.8008, 13.9414, -60.9659)
