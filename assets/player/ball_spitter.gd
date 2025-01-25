@@ -2,7 +2,7 @@ extends Node
 
 const PHANTOM_BALL = preload("res://components/grav_ball/phantom_ball.tscn")
 const GRAV_BALL = preload("res://components/grav_ball/grav_ball.tscn")
-@onready var camera_3d: Camera3D = $"../CharacterBody3D/Camera3D"
+@onready var camera_3d: Camera3D = %Camera
 
 var currentPhantomBall: Node3D;
 

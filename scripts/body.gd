@@ -17,6 +17,7 @@ var tilt_speed: float = 2.0  # Velocidad de interpolación
 var camera_original_rotation: float = 0.0
 var is_tilting: bool = false
 var target_camera_tilt: float = 0.0
+@onready var camera: Camera3D = %Camera
 
 
 var landing : bool = false
@@ -90,8 +91,8 @@ func _ready():
 func _input(event):
 	if (event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED):
 		rotate_y(-event.relative.x * mouse_sensitivity)
-		$Camera3D.rotate_x(-event.relative.y * mouse_sensitivity)
-		$Camera3D.rotation.x = clampf($Camera3D.rotation.x, -deg_to_rad(70), deg_to_rad(70))
+		camera.rotate_x(-event.relative.y * mouse_sensitivity)
+		camera.rotation.x = clampf(camera.rotation.x, -deg_to_rad(70), deg_to_rad(70))
 
 const JOY_DEADZONE = 0.2
 const JOY_AXIS_RESCALE = 1.0/(1.0-JOY_DEADZONE)
@@ -116,8 +117,8 @@ func _process(delta: float):
 			yAxis = (yAxis-JOY_DEADZONE) * JOY_AXIS_RESCALE
 		else:
 			yAxis = (yAxis+JOY_DEADZONE) * JOY_AXIS_RESCALE
-		$Camera3D.rotate_x(-yAxis * delta * JOY_ROTATION_MULTIPLIER/2)
-		$Camera3D.rotation.x = clampf($Camera3D.rotation.x, -deg_to_rad(70), deg_to_rad(70))
+		camera.rotate_x(-yAxis * delta * JOY_ROTATION_MULTIPLIER/2)
+		camera.rotation.x = clampf(camera.rotation.x, -deg_to_rad(70), deg_to_rad(70))
 	
 	
 func _tilt_camera_on_landing():
@@ -126,7 +127,7 @@ func _tilt_camera_on_landing():
 		return
 	
 	is_tilting = true
-	camera_original_rotation = $Camera3D.rotation.x  # Guarda la rotación inicial de la cámara
+	camera_original_rotation = camera.rotation.x  # Guarda la rotación inicial de la cámara
 	target_camera_tilt = camera_original_rotation + landing_camera_tilt  # Define el objetivo de inclinación
 	
 	# Usa un Timer para regresar la cámara a su posición original
@@ -138,7 +139,7 @@ func _tilt_camera_on_landing():
 	timer.start()
 
 func tilt_camera(delta : float) -> void:
-	$Camera3D.rotation.x = lerp($Camera3D.rotation.x, target_camera_tilt, tilt_speed * delta)
+	camera.rotation.x = lerp(camera.rotation.x, target_camera_tilt, tilt_speed * delta)
 
 func _reset_camera_tilt():
 	target_camera_tilt = camera_original_rotation  # Define el objetivo como la rotación original

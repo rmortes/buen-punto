@@ -1,9 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://6r51jirvlm33"]
+[gd_scene load_steps=12 format=3 uid="uid://6r51jirvlm33"]
 
 [ext_resource type="Script" path="res://components/grav_ball/grav_ball.gd" id="1_84uma"]
 [ext_resource type="Shader" path="res://components/grav_ball/grav_ball.gdshader" id="1_nmu1e"]
-
-[sub_resource type="SphereMesh" id="SphereMesh_i2tbs"]
+[ext_resource type="PackedScene" uid="uid://bai1sms6si4mw" path="res://assets/models/BOOL.fbx" id="2_m7svo"]
+[ext_resource type="PackedScene" uid="uid://b4b2r0ig4b7bv" path="res://scenes/look_atmey.tscn" id="4_juw5o"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mg0aw"]
 render_priority = 0
@@ -79,8 +79,8 @@ _data = {
 [node name="GravBall" type="StaticBody3D"]
 script = ExtResource("1_84uma")
 
-[node name="Ball" type="MeshInstance3D" parent="."]
-mesh = SubResource("SphereMesh_i2tbs")
+[node name="BOOL" parent="." instance=ExtResource("2_m7svo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 
 [node name="FieldHint" type="MeshInstance3D" parent="."]
 mesh = SubResource("SphereMesh_3wi8i")
@@ -103,3 +103,6 @@ libraries = {
 "": SubResource("AnimationLibrary_0xtgs")
 }
 autoplay = "GravBallAnimation"
+
+[node name="LookAtmey" parent="." node_paths=PackedStringArray("looker") instance=ExtResource("4_juw5o")]
+looker = NodePath("../BOOL")
