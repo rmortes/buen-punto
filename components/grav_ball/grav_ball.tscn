@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://6r51jirvlm33"]
+[gd_scene load_steps=13 format=3 uid="uid://6r51jirvlm33"]
 
 [ext_resource type="Script" path="res://components/grav_ball/grav_ball.gd" id="1_84uma"]
 [ext_resource type="Shader" path="res://components/grav_ball/grav_ball.gdshader" id="1_nmu1e"]
 [ext_resource type="PackedScene" uid="uid://bai1sms6si4mw" path="res://assets/models/BOOL.fbx" id="2_m7svo"]
 [ext_resource type="PackedScene" uid="uid://b4b2r0ig4b7bv" path="res://scenes/look_atmey.tscn" id="4_juw5o"]
+[ext_resource type="AudioStream" uid="uid://cjyjknv0q8h3d" path="res://assets/sounds/tardis.wav" id="5_vibhg"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mg0aw"]
 render_priority = 0
@@ -107,3 +108,10 @@ autoplay = "GravBallAnimation"
 
 [node name="LookAtmey" parent="." node_paths=PackedStringArray("looker") instance=ExtResource("4_juw5o")]
 looker = NodePath("../BOOL")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("5_vibhg")
+volume_db = -24.0
+autoplay = true
+stream_paused = true
+max_distance = 15.0
