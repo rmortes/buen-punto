@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://cejpr03ejf8au"]
+[gd_scene load_steps=7 format=3 uid="uid://cejpr03ejf8au"]
 
 [ext_resource type="Script" path="res://scenes/results.gd" id="1_8640x"]
 [ext_resource type="Texture2D" uid="uid://dk1f07kgylfy3" path="res://assets/materials/box_background.png" id="1_l0h34"]
 [ext_resource type="Texture2D" uid="uid://bds1nd4g4ly6h" path="res://assets/materials/Blank_button.png" id="2_xvvuq"]
 [ext_resource type="Script" path="res://scripts/color_rect.gd" id="4_6k8tp"]
+[ext_resource type="Script" path="res://scripts/focus.gd" id="4_qqfno"]
 [ext_resource type="Script" path="res://scripts/fade_in.gd" id="5_rcn6o"]
 
 [node name="Control" type="Control"]
@@ -57,7 +58,9 @@ alignment = 1
 [node name="Button" type="TextureButton" parent="TextureRect/MarginContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(210, 120)
 layout_mode = 2
+focus_neighbor_right = NodePath("../Button2")
 texture_normal = ExtResource("2_xvvuq")
+texture_focused = ExtResource("1_l0h34")
 stretch_mode = 0
 
 [node name="Label" type="Label" parent="TextureRect/MarginContainer/VBoxContainer/HBoxContainer/Button"]
@@ -75,8 +78,11 @@ vertical_alignment = 1
 [node name="Button2" type="TextureButton" parent="TextureRect/MarginContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(210, 120)
 layout_mode = 2
+focus_neighbor_left = NodePath("../Button")
 texture_normal = ExtResource("2_xvvuq")
+texture_focused = ExtResource("1_l0h34")
 stretch_mode = 0
+script = ExtResource("4_qqfno")
 
 [node name="Label" type="Label" parent="TextureRect/MarginContainer/VBoxContainer/HBoxContainer/Button2"]
 layout_mode = 1
@@ -111,4 +117,5 @@ grow_vertical = 2
 color = Color(0.0962047, 0.0962048, 0.0962047, 1)
 script = ExtResource("5_rcn6o")
 
+[connection signal="pressed" from="TextureRect/MarginContainer/VBoxContainer/HBoxContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="TextureRect/MarginContainer/VBoxContainer/HBoxContainer/Button2" to="." method="_on_button_2_pressed"]
