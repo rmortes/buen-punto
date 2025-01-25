@@ -60,6 +60,7 @@ custom_minimum_size = Vector2(210, 120)
 layout_mode = 2
 focus_neighbor_right = NodePath("../Button2")
 texture_normal = ExtResource("2_xvvuq")
+texture_focused = ExtResource("1_l0h34")
 stretch_mode = 0
 
 [node name="Label" type="Label" parent="TextureRect/MarginContainer/VBoxContainer/HBoxContainer/Button"]
@@ -79,6 +80,7 @@ custom_minimum_size = Vector2(210, 120)
 layout_mode = 2
 focus_neighbor_left = NodePath("../Button")
 texture_normal = ExtResource("2_xvvuq")
+texture_focused = ExtResource("1_l0h34")
 stretch_mode = 0
 script = ExtResource("4_qqfno")
 
