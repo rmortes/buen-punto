@@ -7,20 +7,39 @@ de una Jam lo puedas activar sin muchos quebraderos de cabeza.
 
 A continuación pongo un listado de todo lo que he instalado y más o menos que hace:
 
-## Prototipado Rápido
+## Bibliografía
 
-- Cyclops Level Builder:
-	Prototipado rápido por bloques
-- Keychain:
-	Añade los ajustes de controles rápidamente a tu juego
-- Godot Game Settings:
-	Añade el resto de ajustes rápidamente a tu juego
-- Deformable Mesh:
-	La capacidad para deformar de ciertas formas las mayas desde el editor.
-- Waterways:
-	Río bajo demanda
-- Virtual Joystick:
-	Una cosa menos de la que preocuparse al portar a Android
+### Sonora
+
+| intro_boom   | touchdown | activar, desactivar_botas |
+|--------------|--------------|--------------|
+| https://www.youtube.com/watch?v=ci2ZW3flckE		      | https://freesound.org/people/_nuel/sounds/54974/       | https://freesound.org/people/hodbinah/sounds/197490/       |
+| https://www.youtube.com/watch?v=erFcYsC6JaY		       | https://freesound.org/people/duckduckpony/sounds/204042/       | Dato 6       |
+
+### Insultos rusos
+
+1. **Засранец** (zasranets) — **Shitass** (Persona que hace el acto de la diarrea, algo así como un insulto fuerte).
+  
+2. **Иди в баню!** (Idi v’banyu!) — **Go to the bathhouse!** (Expresión para decir "vete al infierno", usada para rechazar o mandar a alguien lejos de manera despectiva).
+
+3. **Иди на хуй** (Idi na hui) — **Go to the dick** (Equivalente a "vete al carajo", con mucha fuerza emocional).
+
+4. **Козёл** (kozyol) — **Goat** (Insulto para un hombre, similar a "cabron" o "imbécil", originado en jerga de prisión).
+
+5. **Мудак** (mudak) — **Moron** / **Blowhard** (Insulto para hombres, literalmente significa "testículo", pero se usa como sinónimo de idiota o imbécil).
+
+6. **Перхоть подзалупная** (perhot’ podzalupnaya) — **Peehole dandruff** (Una expresión absurda que no se debe sobrepensar).
+
+7. **Сволочь** (svolotsch’) — **Scumbag** (Viene de la palabra usada en el siglo XIV para describir a una persona despreciable, algo como "lo que el gato arrastró").
+
+8. **Хуй с горы** (hui s’gory) — **Penis from the mountains** (Expresión para referirse a un idiota, similar a "quién es ese imbécil").
+
+9. **Чтоб тебе дети в суп срали** (Chtob tebe deti v’sup srali) — **May your children shit in your soup** (Una maldición desagradable para desearle algo horrible a alguien).
+
+10. **Чтоб у тебя хуй во лбу вырос** (Chtob u tebya hui vo lbu vyros) — **May a dick grow on your forehead** (Una maldición vulgar, deseando algo grotesco a alguien).
+
+11. **Я бы вас послал, да вижу вы оттуда!** (Ya by vas paslal, da vizhu vy ottuda!) — **I would send you there, but I see you came from there already!** (Expresión para decirle a alguien que ya está en un lugar horrible, que se identifica como un idiota).
+
 	
 ## Terreno
 
