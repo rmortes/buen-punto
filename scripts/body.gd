@@ -56,7 +56,6 @@ func _physics_process(delta: float) -> void:
 	
 	# Handle jump (con mando de PS5)
 	if Input.is_action_just_pressed("ui_accept") or Input.is_action_just_pressed("jump"):
-		print("jumpppp")
 		if coyote_timer > 0:
 			velocity.y = jump_velocity
 		landing = true
@@ -73,7 +72,6 @@ func _physics_process(delta: float) -> void:
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	# var current_acceleration = min(terminal_speed, acceleration ** (time_accelerating / time_to_terminal))
 	var current_acceleration = min(terminal_speed, acceleration - (time_to_terminal / ((time_to_terminal / acceleration)+time_accelerating)))
-	print(current_acceleration)
 
 	if direction:
 		velocity.x = lerp(velocity.x, direction.x * max(current_acceleration, minimum_speed), delta * acceleration)
