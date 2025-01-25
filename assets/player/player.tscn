@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cqtyh0ki2darr"]
+[gd_scene load_steps=13 format=3 uid="uid://cqtyh0ki2darr"]
 
 [ext_resource type="Script" path="res://scripts/body.gd" id="1_1ygd6"]
 [ext_resource type="Script" path="res://scripts/label.gd" id="2_67hic"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://lv8jpdvkijsg" path="res://assets/materials/Puntos.png" id="4_cu5hx"]
 [ext_resource type="Script" path="res://scripts/low_oxygen_effect.gd" id="5_qf8g2"]
 [ext_resource type="Script" path="res://assets/player/ball_spitter.gd" id="6_bfcna"]
+[ext_resource type="Script" path="res://assets/player/boots.gd" id="7_sg4of"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lxi17"]
 
@@ -92,3 +93,10 @@ omni_attenuation = 0.694
 
 [node name="BallSpitter" type="Node" parent="."]
 script = ExtResource("6_bfcna")
+
+[node name="Boots" type="Timer" parent="."]
+wait_time = 0.25
+autostart = true
+script = ExtResource("7_sg4of")
+
+[connection signal="timeout" from="Boots" to="Boots" method="_on_timeout"]

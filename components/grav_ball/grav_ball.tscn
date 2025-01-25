@@ -87,6 +87,7 @@ mesh = SubResource("SphereMesh_3wi8i")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_iax5u")
+disabled = true
 
 [node name="Area3D" type="Area3D" parent="."]
 gravity_space_override = 3
