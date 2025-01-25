@@ -27,8 +27,6 @@ func easingFunction(x: float) -> float:
 func _process(delta: float) -> void:
 	var speed := character_body_3d.velocity.length() / 15
 	var interval : float = lerp(4, 1, speed) / 4
-	print("interval: " + str(interval))
-	print("easing: " + str(easingFunction(interval)))
 	wait_time = easingFunction(interval) / 2
 
 func _on_timeout() -> void:

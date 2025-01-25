@@ -8,6 +8,7 @@ extends CharacterBody3D
 @export var minimum_speed: float = 4.0
 @export var time_to_terminal: float = 3.0
 @export var jump_velocity = 4.5
+@export var jump_gravity_reducer := .5
 
 var coyote_time : float = 0.5
 var coyote_timer : float = 0.0
@@ -46,7 +47,8 @@ func _physics_process(delta: float) -> void:
 	
 	# Add the gravity.
 	if not is_on_floor():
-		velocity += get_gravity() * delta
+		print(Input.is_action_pressed("jump"))
+		velocity += get_gravity() * delta * (jump_gravity_reducer if Input.is_action_pressed("jump") else 1)
 
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and coyote_timer > 0:
