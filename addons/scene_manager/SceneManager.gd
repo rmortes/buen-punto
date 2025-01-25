@@ -38,9 +38,9 @@ var default_options := {
 var singleton_entities := {}
 var _previous_scene = null
 
-func _ready() -> void:
-	_set_singleton_entities()
-	scene_loaded.emit()
+#func _ready() -> void:
+	#_set_singleton_entities()
+	#scene_loaded.emit()
 
 func _set_singleton_entities() -> void:
 	singleton_entities = {}
@@ -92,7 +92,7 @@ func _process(_delta: float) -> void:
 	if not is_instance_valid(_previous_scene) and _tree.current_scene:
 		_previous_scene = _tree.current_scene
 		_current_scene = _tree.current_scene
-		_set_singleton_entities()
+		#_set_singleton_entities()
 		scene_loaded.emit()
 	if _tree.current_scene != _previous_scene:
 		_previous_scene = _tree.current_scene

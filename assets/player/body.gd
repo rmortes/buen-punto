@@ -48,7 +48,7 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 
 	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and coyote_timer > 0:
+	if (Input.is_action_just_pressed("ui_accept") or Input.is_action_just_pressed("jump")) and coyote_timer > 0:
 		velocity.y = jump_velocity
 		landing = true
 		coyote_timer = 0
