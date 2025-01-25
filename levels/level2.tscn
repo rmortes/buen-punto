@@ -703,11 +703,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50.9374, 25.9659, -221.814)
 [node name="CollectableBall20" parent="." instance=ExtResource("4_baq73")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.441, 27.5955, -256.717)
 
+[node name="CollectableBall22" parent="." instance=ExtResource("4_baq73")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.97869, 5.2543, -301.988)
+
+[node name="CollectableBall23" parent="." instance=ExtResource("4_baq73")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.6368, 1.79028, -317.114)
+
 [node name="CollectableBall21" parent="." instance=ExtResource("4_baq73")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.9142, 29.9868, -162.274)
 
 [node name="Bubble16" parent="." instance=ExtResource("3_xxdsb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52.213, 25.517, -218.816)
+
+[node name="Bubble17" parent="." instance=ExtResource("3_xxdsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.53303, 5.00193, -325.585)
 
 [node name="Area3D" type="Area3D" parent="."]
 
