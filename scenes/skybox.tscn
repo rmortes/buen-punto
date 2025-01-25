@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://dodlbbqfarpse"]
+
+[ext_resource type="Texture2D" uid="uid://co8qu0ls7wet6" path="res://assets/skybox_material/Spacebox.png" id="1_ecc7o"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_rht4e"]
+panorama = ExtResource("1_ecc7o")
+
+[sub_resource type="Sky" id="Sky_53fw2"]
+sky_material = SubResource("PanoramaSkyMaterial_rht4e")
+
+[sub_resource type="Environment" id="Environment_iu2lr"]
+background_mode = 2
+sky = SubResource("Sky_53fw2")
+
+[node name="Node3D" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.145485, 0.825198, -1.31383)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_iu2lr")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.14078, 0, 0.990041, 0, 1, 0, -0.990041, 0, -0.14078, 0.0560207, 3.46015, 0.153515)
+current = true
+fov = 44.1252
