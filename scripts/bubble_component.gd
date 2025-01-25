@@ -21,7 +21,7 @@ func _process(delta):
 func _on_destroy():
 	# self.queue_free()
 	var popI = randi_range(0, len(pops)-1)
-	SoundManager.play_sound(pops[popI]).volume_db = 24
+	SoundManager.play_sound(pops[popI], "Space").volume_db = 24
 		
 	var animation := (Anima.Node(self)
 		.anima_scale3D(Vector3.ONE * 3, .075)

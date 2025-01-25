@@ -8,7 +8,7 @@ const DESACTIVAR_BOTAS = preload("res://assets/sounds/desactivar_botas.wav")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	SoundManager.play_sound(ACTIVAR_BOTAS)
+	SoundManager.play_sound(ACTIVAR_BOTAS, "Space")
 	(Anima.Node(field_hint)
 		.anima_scale3D(Vector3.ONE, 0.3)
 		.anima_from(Vector3.ZERO)
@@ -19,7 +19,7 @@ func kys() -> void:
 	if unkillable:
 		# then don't
 		return
-	SoundManager.play_sound(DESACTIVAR_BOTAS)
+	SoundManager.play_sound(DESACTIVAR_BOTAS, "Space")
 	var size_animation := (Anima.Node(field_hint)
 		.anima_scale3D(Vector3.ZERO, 0.3)
 		.anima_from(Vector3.ONE)

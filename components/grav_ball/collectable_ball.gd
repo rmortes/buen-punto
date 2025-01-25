@@ -21,6 +21,6 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 	if player == null: return
 	var spitter: BallSpitter = player.find_child("BallSpitter")
 	if spitter == null: return
-	SoundManager.play_sound(TOUCHDOWN)
+	SoundManager.play_sound(TOUCHDOWN, "Space")
 	spitter.ammo += 1
 	queue_free()
