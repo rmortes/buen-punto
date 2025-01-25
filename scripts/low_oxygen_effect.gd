@@ -5,6 +5,7 @@ extends ColorRect
 @export var last_moments_left : float = 3.0
 @export var max_value : float = 3.0
 @export var can_die := true;
+@onready var player = $"../../../.."
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -18,7 +19,10 @@ func _process(delta):
 		var value = calculate_increment(time_left, danger_threshold_start, max_value)
 		self.material.set_shader_parameter("EffectStrength", value if can_die else 0)
 	if oxygen_timer.time_left < 0.1:
-		get_tree().reload_current_scene()
+		var scene_path = LevelData.LEVEL_PATH + str(LevelData.level) + ".tscn"
+		var game_scene = load(scene_path).instantiate()
+		get_tree().root.add_child(game_scene)
+		player.get_parent().queue_free()
 
 func calculate_increment(time_left: float, time_start: float, max_value: float) -> float:
 	# Calcula la proporción del tiempo restante
