@@ -17,6 +17,8 @@ func _process(delta):
 	if time_left < danger_threshold_start and time_left > 0.0:
 		var value = calculate_increment(time_left, danger_threshold_start, max_value)
 		self.material.set_shader_parameter("EffectStrength", value if can_die else 0)
+	if oxygen_timer.time_left < 0.1:
+		get_tree().reload_current_scene()
 
 func calculate_increment(time_left: float, time_start: float, max_value: float) -> float:
 	# Calcula la proporción del tiempo restante

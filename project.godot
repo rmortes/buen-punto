@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Game Tempplate"
-run/main_scene="res://tests/players_runs_test.tscn"
+run/main_scene="res://levels/level1.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -29,6 +29,7 @@ Signal_Debugger="*res://addons/SignalVisualizer/Debugger/SignalDebugger.gd"
 RuntimeDebugTools="*res://addons/runtime_debug_tools/scenes/remote_inspector.tscn"
 SceneManager="*res://addons/scene_manager/SceneManager.tscn"
 GuiTransitions="*res://addons/simple-gui-transitions/singleton.gd"
+LevelData="*res://singletons/LevelData.gd"
 
 [dialogic]
 
