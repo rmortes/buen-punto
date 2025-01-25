@@ -53,6 +53,13 @@ func _physics_process(delta: float) -> void:
 		landing = true
 		coyote_timer = 0
 	
+	# Handle jump (con mando de PS5)
+	if Input.is_action_just_pressed("ui_accept") or Input.is_joy_button_pressed(0, JOY_BUTTON_X):
+		if coyote_timer > 0:
+			velocity.y = jump_velocity
+		landing = true
+		coyote_timer = 0
+	
 	if Input.is_action_pressed("ui_up"):
 		time_accelerating = min(time_accelerating + delta, time_to_terminal)
 	else:
