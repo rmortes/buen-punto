@@ -1,11 +1,12 @@
-[gd_scene load_steps=15 format=3 uid="uid://b13240d3vfsxf"]
+[gd_scene load_steps=16 format=3 uid="uid://b13240d3vfsxf"]
 
-[ext_resource type="PackedScene" uid="uid://cqtyh0ki2darr" path="res://assets/player/player.tscn" id="1_sku0q"]
-[ext_resource type="Texture2D" uid="uid://co8qu0ls7wet6" path="res://assets/skybox_material/Spacebox.png" id="3_p1dnf"]
-[ext_resource type="PackedScene" uid="uid://cedvs0kn462ks" path="res://scenes/bubble.tscn" id="4_db08g"]
+[ext_resource type="PackedScene" uid="uid://cqtyh0ki2darr" path="res://assets/player/player.tscn" id="1_j4myj"]
+[ext_resource type="Texture2D" uid="uid://co8qu0ls7wet6" path="res://assets/skybox_material/Spacebox.png" id="2_bqr8n"]
+[ext_resource type="PackedScene" uid="uid://cedvs0kn462ks" path="res://scenes/bubble.tscn" id="3_enh06"]
+[ext_resource type="PackedScene" uid="uid://bexknyicuyho3" path="res://components/grav_ball/collectable_ball.tscn" id="4_wbn2r"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_onmyc"]
-panorama = ExtResource("3_p1dnf")
+panorama = ExtResource("2_bqr8n")
 
 [sub_resource type="Sky" id="Sky_wuo5y"]
 sky_material = SubResource("PanoramaSkyMaterial_onmyc")
@@ -32,13 +33,13 @@ sky = SubResource("Sky_wuo5y")
 
 [node name="Node3D" type="Node3D"]
 
-[node name="Player" parent="." instance=ExtResource("1_sku0q")]
+[node name="Player" parent="." instance=ExtResource("1_j4myj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.743015, 1.84471, -0.580404)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_0rk8w")
 
-[node name="Bubble" parent="." instance=ExtResource("4_db08g")]
+[node name="Bubble" parent="." instance=ExtResource("3_enh06")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.45143, -0.226019, -69.9207)
 
 [node name="CilinderObject2" type="StaticBody3D" parent="." groups=["scene_manager_entity_nodes"]]
@@ -455,13 +456,13 @@ shape = SubResource("SphereShape3D_mnlcj")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="SphereObject11"]
 mesh = SubResource("SphereMesh_5giai")
 
-[node name="Bubble2" parent="." instance=ExtResource("4_db08g")]
+[node name="Bubble2" parent="." instance=ExtResource("3_enh06")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 91.9815, 1.5689, -86.1708)
 
-[node name="Bubble3" parent="." instance=ExtResource("4_db08g")]
+[node name="Bubble3" parent="." instance=ExtResource("3_enh06")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 104.479, 2.74099, -187.95)
 
-[node name="Bubble4" parent="." instance=ExtResource("4_db08g")]
+[node name="Bubble4" parent="." instance=ExtResource("3_enh06")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 106.783, -25.246, -331.803)
 
 [node name="CilinderObject3" type="StaticBody3D" parent="." groups=["scene_manager_entity_nodes"]]
@@ -519,100 +520,100 @@ shape = SubResource("CapsuleShape3D_ufeum")
 mesh = SubResource("CapsuleMesh_i1e5c")
 skeleton = NodePath("../../CilinderObject2")
 
-[node name="Bubble5" parent="." instance=ExtResource("4_db08g")]
+[node name="Bubble5" parent="." instance=ExtResource("3_enh06")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 108.276, -15.0779, -293.696)
 
-[node name="Bubble6" parent="." instance=ExtResource("4_db08g")]
+[node name="Bubble6" parent="." instance=ExtResource("3_enh06")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 113.05, -13.5052, -293.696)
 
-[node name="Bubble7" parent="." instance=ExtResource("4_db08g")]
+[node name="Bubble7" parent="." instance=ExtResource("3_enh06")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 109.764, -12.2613, -290.646)
 
-[node name="Bubble8" parent="." instance=ExtResource("4_db08g")]
+[node name="Bubble8" parent="." instance=ExtResource("3_enh06")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 113.05, -10.6886, -290.646)
 
-[node name="Bubble9" parent="." instance=ExtResource("4_db08g")]
+[node name="Bubble9" parent="." instance=ExtResource("3_enh06")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 115.935, -12.5481, -293.696)
 
-[node name="Bubble10" parent="." instance=ExtResource("4_db08g")]
+[node name="Bubble10" parent="." instance=ExtResource("3_enh06")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 120.709, -10.9754, -293.696)
 
-[node name="Bubble11" parent="." instance=ExtResource("4_db08g")]
+[node name="Bubble11" parent="." instance=ExtResource("3_enh06")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 117.424, -9.73147, -290.646)
 
-[node name="Bubble12" parent="." instance=ExtResource("4_db08g")]
+[node name="Bubble12" parent="." instance=ExtResource("3_enh06")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 120.709, -8.15878, -290.646)
 
-[node name="Bubble13" parent="." instance=ExtResource("4_db08g")]
+[node name="Bubble13" parent="." instance=ExtResource("3_enh06")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 108.276, -14.4089, -299.581)
 
-[node name="Bubble14" parent="." instance=ExtResource("4_db08g")]
+[node name="Bubble14" parent="." instance=ExtResource("3_enh06")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 113.05, -12.8363, -299.581)
 
-[node name="Bubble15" parent="." instance=ExtResource("4_db08g")]
+[node name="Bubble15" parent="." instance=ExtResource("3_enh06")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 109.764, -11.5924, -296.531)
 
-[node name="Bubble16" parent="." instance=ExtResource("4_db08g")]
+[node name="Bubble16" parent="." instance=ExtResource("3_enh06")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 113.05, -10.0197, -296.531)
 
-[node name="Bubble17" parent="." instance=ExtResource("4_db08g")]
+[node name="Bubble17" parent="." instance=ExtResource("3_enh06")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 115.935, -11.8791, -299.581)
 
-[node name="Bubble18" parent="." instance=ExtResource("4_db08g")]
+[node name="Bubble18" parent="." instance=ExtResource("3_enh06")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 120.709, -10.3064, -299.581)
 
-[node name="Bubble19" parent="." instance=ExtResource("4_db08g")]
+[node name="Bubble19" parent="." instance=ExtResource("3_enh06")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 117.424, -9.06253, -296.531)
 
-[node name="Bubble20" parent="." instance=ExtResource("4_db08g")]
+[node name="Bubble20" parent="." instance=ExtResource("3_enh06")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 120.709, -7.48984, -296.531)
 
-[node name="Bubble21" parent="." instance=ExtResource("4_db08g")]
+[node name="Bubble21" parent="." instance=ExtResource("3_enh06")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 108.276, -19.2347, -291.656)
 
-[node name="Bubble22" parent="." instance=ExtResource("4_db08g")]
+[node name="Bubble22" parent="." instance=ExtResource("3_enh06")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 113.05, -17.662, -291.656)
 
-[node name="Bubble23" parent="." instance=ExtResource("4_db08g")]
+[node name="Bubble23" parent="." instance=ExtResource("3_enh06")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 109.764, -16.4181, -288.606)
 
-[node name="Bubble24" parent="." instance=ExtResource("4_db08g")]
+[node name="Bubble24" parent="." instance=ExtResource("3_enh06")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 113.05, -14.8454, -288.606)
 
-[node name="Bubble25" parent="." instance=ExtResource("4_db08g")]
+[node name="Bubble25" parent="." instance=ExtResource("3_enh06")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 115.935, -16.7049, -291.656)
 
-[node name="Bubble26" parent="." instance=ExtResource("4_db08g")]
+[node name="Bubble26" parent="." instance=ExtResource("3_enh06")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 120.709, -15.1322, -291.656)
 
-[node name="Bubble27" parent="." instance=ExtResource("4_db08g")]
+[node name="Bubble27" parent="." instance=ExtResource("3_enh06")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 117.424, -13.8883, -288.606)
 
-[node name="Bubble28" parent="." instance=ExtResource("4_db08g")]
+[node name="Bubble28" parent="." instance=ExtResource("3_enh06")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 120.709, -12.3156, -288.606)
 
-[node name="Bubble29" parent="." instance=ExtResource("4_db08g")]
+[node name="Bubble29" parent="." instance=ExtResource("3_enh06")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 108.276, -18.5658, -297.541)
 
-[node name="Bubble30" parent="." instance=ExtResource("4_db08g")]
+[node name="Bubble30" parent="." instance=ExtResource("3_enh06")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 113.05, -16.9931, -297.541)
 
-[node name="Bubble31" parent="." instance=ExtResource("4_db08g")]
+[node name="Bubble31" parent="." instance=ExtResource("3_enh06")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 109.764, -15.7492, -294.491)
 
-[node name="Bubble32" parent="." instance=ExtResource("4_db08g")]
+[node name="Bubble32" parent="." instance=ExtResource("3_enh06")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 113.05, -14.1765, -294.491)
 
-[node name="Bubble33" parent="." instance=ExtResource("4_db08g")]
+[node name="Bubble33" parent="." instance=ExtResource("3_enh06")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 115.935, -16.0359, -297.541)
 
-[node name="Bubble34" parent="." instance=ExtResource("4_db08g")]
+[node name="Bubble34" parent="." instance=ExtResource("3_enh06")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 120.709, -14.4632, -297.541)
 
-[node name="Bubble35" parent="." instance=ExtResource("4_db08g")]
+[node name="Bubble35" parent="." instance=ExtResource("3_enh06")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 117.424, -13.2193, -294.491)
 
-[node name="Bubble36" parent="." instance=ExtResource("4_db08g")]
+[node name="Bubble36" parent="." instance=ExtResource("3_enh06")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 120.709, -11.6466, -294.491)
 
 [node name="CilinderObject8" type="StaticBody3D" parent="." groups=["scene_manager_entity_nodes"]]
@@ -923,23 +924,80 @@ shape = SubResource("CylinderShape3D_l1c62")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="TubeObject16"]
 mesh = SubResource("CylinderMesh_uj8cn")
 
-[node name="Bubble37" parent="." instance=ExtResource("4_db08g")]
+[node name="Bubble37" parent="." instance=ExtResource("3_enh06")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 73.9171, -32.5834, -445.807)
 
-[node name="Bubble38" parent="." instance=ExtResource("4_db08g")]
+[node name="Bubble38" parent="." instance=ExtResource("3_enh06")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 107.839, -21.0633, -427.157)
 
-[node name="Bubble39" parent="." instance=ExtResource("4_db08g")]
+[node name="Bubble39" parent="." instance=ExtResource("3_enh06")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 89.6534, -42.7684, -472.824)
 
-[node name="Bubble40" parent="." instance=ExtResource("4_db08g")]
+[node name="Bubble40" parent="." instance=ExtResource("3_enh06")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65.2434, -43.6297, -503.452)
 
-[node name="Bubble41" parent="." instance=ExtResource("4_db08g")]
+[node name="Bubble41" parent="." instance=ExtResource("3_enh06")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 97.9992, -43.8715, -533.322)
 
-[node name="Bubble42" parent="." instance=ExtResource("4_db08g")]
+[node name="Bubble42" parent="." instance=ExtResource("3_enh06")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.284, -39.9918, -572.77)
 
-[node name="Bubble43" parent="." instance=ExtResource("4_db08g")]
+[node name="Bubble43" parent="." instance=ExtResource("3_enh06")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 98.0164, -33.1974, -635.323)
+
+[node name="CollectableBall" parent="." instance=ExtResource("4_wbn2r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.04131, 1.55725, -17.6759)
+
+[node name="CollectableBall3" parent="." instance=ExtResource("4_wbn2r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 89.1043, 1.50564, -91.3772)
+
+[node name="CollectableBall2" parent="." instance=ExtResource("4_wbn2r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.1863, -0.175153, -71.5459)
+
+[node name="CollectableBall4" parent="." instance=ExtResource("4_wbn2r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 104.174, 2.9029, -218.162)
+
+[node name="CollectableBall5" parent="." instance=ExtResource("4_wbn2r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 104.174, 2.9029, -238.064)
+
+[node name="CollectableBall6" parent="." instance=ExtResource("4_wbn2r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 106.542, -0.667295, -253.839)
+
+[node name="CollectableBall7" parent="." instance=ExtResource("4_wbn2r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 108.928, -2.63815, -268.828)
+
+[node name="CollectableBall8" parent="." instance=ExtResource("4_wbn2r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 109.375, -5.0358, -282.009)
+
+[node name="CollectableBall9" parent="." instance=ExtResource("4_wbn2r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 108.563, -11.7289, -299.084)
+
+[node name="CollectableBall10" parent="." instance=ExtResource("4_wbn2r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 104.295, -27.984, -367.54)
+
+[node name="CollectableBall11" parent="." instance=ExtResource("4_wbn2r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 104.295, -27.984, -400.188)
+
+[node name="CollectableBall12" parent="." instance=ExtResource("4_wbn2r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.2752, -35.1339, -427.485)
+
+[node name="CollectableBall13" parent="." instance=ExtResource("4_wbn2r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 99.8567, -38.7566, -457.683)
+
+[node name="CollectableBall14" parent="." instance=ExtResource("4_wbn2r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 111.862, -41.4495, -496.9)
+
+[node name="CollectableBall15" parent="." instance=ExtResource("4_wbn2r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 67.3627, -41.4023, -522.407)
+
+[node name="CollectableBall16" parent="." instance=ExtResource("4_wbn2r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 96.145, -41.1798, -590.811)
+
+[node name="CollectableBall17" parent="." instance=ExtResource("4_wbn2r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 89.1043, 6.51249, -119.819)
+
+[node name="CollectableBall18" parent="." instance=ExtResource("4_wbn2r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100.664, 11.0525, -119.819)
+
+[node name="CollectableBall19" parent="." instance=ExtResource("4_wbn2r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.0005, 6.80142, -71.5459)
