@@ -13,12 +13,12 @@ uv1_scale = Vector3(48, 16, 48)
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_wlf7t"]
 panorama = ExtResource("3_fcpcj")
 
-[sub_resource type="Sky" id="Sky_wuo5y"]
+[sub_resource type="Sky" id="Sky_vese2"]
 sky_material = SubResource("PanoramaSkyMaterial_wlf7t")
 
 [sub_resource type="Environment" id="Environment_absj2"]
 background_mode = 2
-sky = SubResource("Sky_wuo5y")
+sky = SubResource("Sky_vese2")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_cuw1o"]
 
