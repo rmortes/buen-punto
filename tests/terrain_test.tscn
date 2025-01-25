@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dur48tbbhwqf1"]
+[gd_scene load_steps=19 format=3 uid="uid://dur48tbbhwqf1"]
 
 [ext_resource type="PackedScene" uid="uid://cqtyh0ki2darr" path="res://assets/player/player.tscn" id="1_c45dc"]
 [ext_resource type="Texture2D" uid="uid://co8qu0ls7wet6" path="res://assets/skybox_material/Spacebox.png" id="3_qprbq"]
@@ -12,6 +12,9 @@
 [ext_resource type="PackedScene" uid="uid://bovi48q844jb4" path="res://assets/terrain/viga1.glb" id="10_fasmx"]
 [ext_resource type="PackedScene" uid="uid://ofrk8fc75blt" path="res://assets/terrain/viga2.glb" id="11_sne4g"]
 [ext_resource type="PackedScene" uid="uid://lmnq841kcvbn" path="res://assets/terrain/viga3.glb" id="12_w4ha1"]
+[ext_resource type="PackedScene" uid="uid://j2cb01gu6hoj" path="res://assets/terrain/viga6.glb" id="13_ffocv"]
+[ext_resource type="PackedScene" uid="uid://bryewbbf0r2q6" path="res://assets/terrain/viga5.glb" id="14_l6bss"]
+[ext_resource type="PackedScene" uid="uid://cua7jf0437ux6" path="res://assets/terrain/viga4.glb" id="15_2i1bc"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_wlf7t"]
 panorama = ExtResource("3_qprbq")
@@ -62,3 +65,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -181.352, 135.907, -42.4859)
 
 [node name="viga3" parent="." instance=ExtResource("12_w4ha1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -181.904, 133.773, -41.1844)
+
+[node name="viga6" parent="." instance=ExtResource("13_ffocv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -173.803, 135.189, -39.6517)
+
+[node name="viga5" parent="." instance=ExtResource("14_l6bss")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -211.873, 151.181, -33.4893)
+
+[node name="viga4" parent="." instance=ExtResource("15_2i1bc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -213.155, 151.848, -35.2291)

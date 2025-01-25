@@ -2,12 +2,12 @@ extends Timer
 
 # The audios commented are not needed
 const steps = [
-	preload("res://assets/paso-01.mp3"),
-	preload("res://assets/paso-03.mp3"),
-	preload("res://assets/paso-02.mp3"),
+	preload("res://assets/sounds/paso-01.mp3"),
+	preload("res://assets/sounds/paso-03.mp3"),
+	preload("res://assets/sounds/paso-02.mp3"),
 	#preload("res://assets/paso-04.mp3"),
-	preload("res://assets/paso-05.mp3"),
-	preload("res://assets/paso-06.mp3"),
+	preload("res://assets/sounds/paso-05.mp3"),
+	preload("res://assets/sounds/paso-06.mp3"),
 	#preload("res://assets/paso-07.mp3"),
 	#preload("res://assets/paso-08.mp3"),
 	#preload("res://assets/paso-09.mp3"),
