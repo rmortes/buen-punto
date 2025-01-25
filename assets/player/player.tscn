@@ -1,7 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cqtyh0ki2darr"]
+[gd_scene load_steps=11 format=3 uid="uid://cqtyh0ki2darr"]
 
-[ext_resource type="Script" path="res://assets/player/body.gd" id="1_1ygd6"]
+[ext_resource type="Script" path="res://scripts/body.gd" id="1_1ygd6"]
 [ext_resource type="Script" path="res://scripts/label.gd" id="2_67hic"]
+[ext_resource type="Shader" path="res://shaders/lowOxygen.gdshader" id="3_swxta"]
+[ext_resource type="Texture2D" uid="uid://lv8jpdvkijsg" path="res://assets/materials/Puntos.png" id="4_cu5hx"]
+[ext_resource type="Script" path="res://scripts/low_oxygen_effect.gd" id="5_qf8g2"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lxi17"]
 
@@ -19,6 +22,25 @@ func _process(delta: float) -> void:
 	pass
 "
 
+[sub_resource type="Gradient" id="Gradient_4abpx"]
+offsets = PackedFloat32Array(0.161765, 0.580882, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.839175, 3.34509e-06, 8.66354e-07, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_om3rd"]
+gradient = SubResource("Gradient_4abpx")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ya4go"]
+shader = ExtResource("3_swxta")
+shader_parameter/EffectStrength = 0.0
+shader_parameter/TextureEffect = 0.8
+shader_parameter/Feather = 1.0
+shader_parameter/MinRadius = 0.815
+shader_parameter/MaxRadius = 0.0
+shader_parameter/PulseSpeed = 3.0
+shader_parameter/PulsePower = 0.2
+shader_parameter/OverlayEffect = ExtResource("4_cu5hx")
+shader_parameter/TintGradient = SubResource("GradientTexture2D_om3rd")
+
 [node name="Player" type="Node3D"]
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="."]
@@ -32,16 +54,29 @@ shape = SubResource("CapsuleShape3D_lxi17")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
 script = SubResource("GDScript_fam4x")
 
-[node name="Label" type="Label" parent="CharacterBody3D/Camera3D"]
-offset_right = 40.0
-offset_bottom = 23.0
+[node name="CanvasLayer" type="CanvasLayer" parent="CharacterBody3D/Camera3D"]
+
+[node name="Label" type="Label" parent="CharacterBody3D/Camera3D/CanvasLayer"]
+offset_left = 29.0
+offset_top = 19.0
+offset_right = 69.0
+offset_bottom = 53.0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
 script = ExtResource("2_67hic")
 
+[node name="LowOxygenEffect" type="ColorRect" parent="CharacterBody3D/Camera3D/CanvasLayer"]
+material = SubResource("ShaderMaterial_ya4go")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("5_qf8g2")
+
 [node name="OxygenTimer" type="Timer" parent="CharacterBody3D"]
 unique_name_in_owner = true
-wait_time = 5.0
+wait_time = 20.0
 one_shot = true
 autostart = true
 
