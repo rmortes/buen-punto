@@ -1,4 +1,4 @@
-extends StaticBody3D
+extends Node3D
 
 var bubble_time_increase : float = 5.0
 

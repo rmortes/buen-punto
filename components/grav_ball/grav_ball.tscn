@@ -113,5 +113,4 @@ looker = NodePath("../BOOL")
 stream = ExtResource("5_vibhg")
 volume_db = -24.0
 autoplay = true
-stream_paused = true
 max_distance = 15.0

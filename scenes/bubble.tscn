@@ -1,18 +1,15 @@
 [gd_scene load_steps=5 format=3 uid="uid://cedvs0kn462ks"]
 
 [ext_resource type="Script" path="res://scripts/bubble_component.gd" id="1_w471k"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tpwox"]
-transparency = 1
-albedo_color = Color(1, 1, 1, 0.603922)
+[ext_resource type="Material" uid="uid://dm77a2is2df6j" path="res://assets/shaders/soap_bubble.tres" id="2_g11jt"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_euygy"]
-material = SubResource("StandardMaterial3D_tpwox")
+material = ExtResource("2_g11jt")
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_6h053"]
 radius = 1.2
 
-[node name="Bubble" type="StaticBody3D"]
+[node name="Bubble" type="Node3D"]
 script = ExtResource("1_w471k")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
@@ -23,5 +20,9 @@ mesh = SubResource("SphereMesh_euygy")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("SphereShape3D_6h053")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+light_color = Color(0.647059, 1, 1, 1)
+omni_range = 15.0
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
