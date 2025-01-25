@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cqtyh0ki2darr"]
+[gd_scene load_steps=13 format=3 uid="uid://cqtyh0ki2darr"]
 
 [ext_resource type="Script" path="res://scripts/body.gd" id="1_1ygd6"]
 [ext_resource type="Script" path="res://scripts/label.gd" id="2_67hic"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://lv8jpdvkijsg" path="res://assets/materials/Puntos.png" id="4_cu5hx"]
 [ext_resource type="Script" path="res://scripts/low_oxygen_effect.gd" id="5_qf8g2"]
 [ext_resource type="Script" path="res://assets/player/ball_spitter.gd" id="6_bfcna"]
+[ext_resource type="Script" path="res://assets/player/boots.gd" id="7_sg4of"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lxi17"]
 
@@ -42,7 +43,7 @@ shader_parameter/PulsePower = 0.2
 shader_parameter/OverlayEffect = ExtResource("4_cu5hx")
 shader_parameter/TintGradient = SubResource("GradientTexture2D_om3rd")
 
-[node name="Player" type="Node3D"]
+[node name="Player" type="Node3D" groups=["player"]]
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="."]
 axis_lock_angular_y = true
@@ -52,13 +53,14 @@ script = ExtResource("1_1ygd6")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_lxi17")
 
-[node name="Camera3D" type="Camera3D" parent="CharacterBody3D"]
+[node name="Camera" type="Camera3D" parent="CharacterBody3D"]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
 script = SubResource("GDScript_fam4x")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="CharacterBody3D/Camera3D"]
+[node name="CanvasLayer" type="CanvasLayer" parent="CharacterBody3D/Camera"]
 
-[node name="Label" type="Label" parent="CharacterBody3D/Camera3D/CanvasLayer"]
+[node name="Label" type="Label" parent="CharacterBody3D/Camera/CanvasLayer"]
 offset_left = 29.0
 offset_top = 19.0
 offset_right = 69.0
@@ -68,7 +70,7 @@ theme_override_font_sizes/font_size = 24
 script = ExtResource("2_67hic")
 metadata/_edit_use_anchors_ = true
 
-[node name="LowOxygenEffect" type="ColorRect" parent="CharacterBody3D/Camera3D/CanvasLayer"]
+[node name="LowOxygenEffect" type="ColorRect" parent="CharacterBody3D/Camera/CanvasLayer"]
 material = SubResource("ShaderMaterial_ya4go")
 anchors_preset = 15
 anchor_right = 1.0
@@ -76,6 +78,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("5_qf8g2")
+can_die = false
 
 [node name="OxygenTimer" type="Timer" parent="CharacterBody3D"]
 unique_name_in_owner = true
@@ -90,3 +93,10 @@ omni_attenuation = 0.694
 
 [node name="BallSpitter" type="Node" parent="."]
 script = ExtResource("6_bfcna")
+
+[node name="Boots" type="Timer" parent="."]
+wait_time = 0.25
+autostart = true
+script = ExtResource("7_sg4of")
+
+[connection signal="timeout" from="Boots" to="Boots" method="_on_timeout"]

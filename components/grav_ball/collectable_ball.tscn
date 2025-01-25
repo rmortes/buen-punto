@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bexknyicuyho3"]
+
+[ext_resource type="PackedScene" uid="uid://bai1sms6si4mw" path="res://assets/models/BOOL.fbx" id="1_4mv8w"]
+[ext_resource type="Script" path="res://components/grav_ball/collectable_ball.gd" id="2_lc1mx"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_3qv56"]
+radius = 3.0
+
+[node name="CollectableBall" type="Node3D"]
+script = ExtResource("2_lc1mx")
+
+[node name="BOOL" parent="." instance=ExtResource("1_4mv8w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0631231, 0.563085, 0)
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_3qv56")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

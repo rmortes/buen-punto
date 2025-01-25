@@ -1,13 +1,12 @@
 [gd_scene load_steps=3 format=3 uid="uid://cdg7mlirhthil"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mcqsu"]
-transparency = 1
-albedo_color = Color(1, 1, 1, 0.792157)
-
-[sub_resource type="SphereMesh" id="SphereMesh_i2tbs"]
-material = SubResource("StandardMaterial3D_mcqsu")
+[ext_resource type="PackedScene" uid="uid://bai1sms6si4mw" path="res://assets/models/BOOL.fbx" id="1_tv61v"]
+[ext_resource type="PackedScene" uid="uid://b4b2r0ig4b7bv" path="res://scenes/look_atmey.tscn" id="2_wx7mk"]
 
 [node name="GravBall" type="StaticBody3D"]
 
-[node name="Ball" type="MeshInstance3D" parent="."]
-mesh = SubResource("SphereMesh_i2tbs")
+[node name="BOOL" parent="." instance=ExtResource("1_tv61v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0631231, 0.563085, 0)
+
+[node name="LookAtmey" parent="." node_paths=PackedStringArray("looker") instance=ExtResource("2_wx7mk")]
+looker = NodePath("..")

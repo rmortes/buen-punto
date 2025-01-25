@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://b4b2r0ig4b7bv"]
+
+[ext_resource type="Script" path="res://components/grav_ball/look_atmey.gd" id="1_6m13m"]
+
+[node name="LookAtmey" type="Node" node_paths=PackedStringArray("looker")]
+script = ExtResource("1_6m13m")
+looker = NodePath("")

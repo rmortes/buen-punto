@@ -1,17 +1,17 @@
-[gd_scene load_steps=12 format=3 uid="uid://bqqpdq67apve1"]
+[gd_scene load_steps=10 format=3 uid="uid://b1hspvfrdhefs"]
 
-[ext_resource type="PackedScene" uid="uid://cqtyh0ki2darr" path="res://assets/player/player.tscn" id="1_v7ldy"]
-[ext_resource type="Texture2D" uid="uid://h7w1y2nno1rb" path="res://tests/bad_texture.jpg" id="2_h5ewj"]
-[ext_resource type="Texture2D" uid="uid://co8qu0ls7wet6" path="res://assets/skybox_material/Spacebox.png" id="3_xr6d5"]
-[ext_resource type="PackedScene" uid="uid://6r51jirvlm33" path="res://components/grav_ball/grav_ball.tscn" id="4_rms5f"]
+[ext_resource type="PackedScene" uid="uid://cqtyh0ki2darr" path="res://assets/player/player.tscn" id="1_cj87x"]
+[ext_resource type="Texture2D" uid="uid://h7w1y2nno1rb" path="res://tests/bad_texture.jpg" id="2_d18hb"]
+[ext_resource type="Texture2D" uid="uid://co8qu0ls7wet6" path="res://assets/skybox_material/Spacebox.png" id="3_cvjj0"]
+[ext_resource type="PackedScene" uid="uid://bexknyicuyho3" path="res://components/grav_ball/collectable_ball.tscn" id="4_l3q25"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7ca8d"]
-albedo_texture = ExtResource("2_h5ewj")
+albedo_texture = ExtResource("2_d18hb")
 emission = Color(1, 1, 1, 1)
 uv1_scale = Vector3(48, 16, 48)
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_yvw78"]
-panorama = ExtResource("3_xr6d5")
+panorama = ExtResource("3_cvjj0")
 
 [sub_resource type="Sky" id="Sky_53fw2"]
 sky_material = SubResource("PanoramaSkyMaterial_yvw78")
@@ -20,16 +20,12 @@ sky_material = SubResource("PanoramaSkyMaterial_yvw78")
 background_mode = 2
 sky = SubResource("Sky_53fw2")
 
-[sub_resource type="SphereMesh" id="SphereMesh_ak3ww"]
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_b5tfs"]
-
 [sub_resource type="SphereShape3D" id="SphereShape3D_18lpd"]
 radius = 1.0
 
 [node name="Node3D" type="Node3D"]
 
-[node name="Player" parent="." instance=ExtResource("1_v7ldy")]
+[node name="Player" parent="." instance=ExtResource("1_cj87x")]
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(10.8048, 0, 0, 0, 1.00412, 0, 0, 0, 27.913, -0.186383, 0, -79.1801)
@@ -46,12 +42,6 @@ transform = Transform3D(0.995955, 0.0898504, 6.69438e-10, -0.00779973, 0.0864568
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 29.7858, 15.232, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
-mesh = SubResource("SphereMesh_ak3ww")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-shape = SubResource("SphereShape3D_b5tfs")
-
 [node name="Area3D" type="Area3D" parent="StaticBody3D"]
 gravity_space_override = 3
 gravity_point = true
@@ -62,5 +52,11 @@ gravity = 48.0
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D/Area3D"]
 shape = SubResource("SphereShape3D_18lpd")
 
-[node name="GravBall" parent="." instance=ExtResource("4_rms5f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.24331, 4.20176, -9.47933)
+[node name="CollectableBall" parent="." instance=ExtResource("4_l3q25")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.32352, 2.95782, -4.64023)
+
+[node name="CollectableBall2" parent="." instance=ExtResource("4_l3q25")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.32352, 7.62116, -13.84)
+
+[node name="CollectableBall3" parent="." instance=ExtResource("4_l3q25")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.30021, 13.095, -20.2856)

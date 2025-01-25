@@ -8,6 +8,7 @@ extends CharacterBody3D
 @export var minimum_speed: float = 4.0
 @export var time_to_terminal: float = 3.0
 @export var jump_velocity = 4.5
+@export var jump_gravity_reducer := .5
 
 var coyote_time : float = 0.5
 var coyote_timer : float = 0.0
@@ -17,6 +18,7 @@ var tilt_speed: float = 2.0  # Velocidad de interpolación
 var camera_original_rotation: float = 0.0
 var is_tilting: bool = false
 var target_camera_tilt: float = 0.0
+@onready var camera: Camera3D = %Camera
 
 
 var landing : bool = false
@@ -45,7 +47,8 @@ func _physics_process(delta: float) -> void:
 	
 	# Add the gravity.
 	if not is_on_floor():
-		velocity += get_gravity() * delta
+		print(Input.is_action_pressed("jump"))
+		velocity += get_gravity() * delta * (jump_gravity_reducer if Input.is_action_pressed("jump") else 1)
 
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and coyote_timer > 0:
@@ -55,7 +58,6 @@ func _physics_process(delta: float) -> void:
 	
 	# Handle jump (con mando de PS5)
 	if Input.is_action_just_pressed("ui_accept") or Input.is_action_just_pressed("jump"):
-		print("jumpppp")
 		if coyote_timer > 0:
 			velocity.y = jump_velocity
 		landing = true
@@ -72,7 +74,6 @@ func _physics_process(delta: float) -> void:
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	# var current_acceleration = min(terminal_speed, acceleration ** (time_accelerating / time_to_terminal))
 	var current_acceleration = min(terminal_speed, acceleration - (time_to_terminal / ((time_to_terminal / acceleration)+time_accelerating)))
-	#print(current_acceleration)
 
 	if direction:
 		velocity.x = lerp(velocity.x, direction.x * max(current_acceleration, minimum_speed), delta * acceleration)
@@ -90,8 +91,8 @@ func _ready():
 func _input(event):
 	if (event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED):
 		rotate_y(-event.relative.x * mouse_sensitivity)
-		$Camera3D.rotate_x(-event.relative.y * mouse_sensitivity)
-		$Camera3D.rotation.x = clampf($Camera3D.rotation.x, -deg_to_rad(70), deg_to_rad(70))
+		camera.rotate_x(-event.relative.y * mouse_sensitivity)
+		camera.rotation.x = clampf(camera.rotation.x, -deg_to_rad(70), deg_to_rad(70))
 
 const JOY_DEADZONE = 0.2
 const JOY_AXIS_RESCALE = 1.0/(1.0-JOY_DEADZONE)
@@ -116,8 +117,8 @@ func _process(delta: float):
 			yAxis = (yAxis-JOY_DEADZONE) * JOY_AXIS_RESCALE
 		else:
 			yAxis = (yAxis+JOY_DEADZONE) * JOY_AXIS_RESCALE
-		$Camera3D.rotate_x(-yAxis * delta * JOY_ROTATION_MULTIPLIER/2)
-		$Camera3D.rotation.x = clampf($Camera3D.rotation.x, -deg_to_rad(70), deg_to_rad(70))
+		camera.rotate_x(-yAxis * delta * JOY_ROTATION_MULTIPLIER/2)
+		camera.rotation.x = clampf(camera.rotation.x, -deg_to_rad(70), deg_to_rad(70))
 	
 	
 func _tilt_camera_on_landing():
@@ -126,7 +127,7 @@ func _tilt_camera_on_landing():
 		return
 	
 	is_tilting = true
-	camera_original_rotation = $Camera3D.rotation.x  # Guarda la rotación inicial de la cámara
+	camera_original_rotation = camera.rotation.x  # Guarda la rotación inicial de la cámara
 	target_camera_tilt = camera_original_rotation + landing_camera_tilt  # Define el objetivo de inclinación
 	
 	# Usa un Timer para regresar la cámara a su posición original
@@ -138,7 +139,7 @@ func _tilt_camera_on_landing():
 	timer.start()
 
 func tilt_camera(delta : float) -> void:
-	$Camera3D.rotation.x = lerp($Camera3D.rotation.x, target_camera_tilt, tilt_speed * delta)
+	camera.rotation.x = lerp(camera.rotation.x, target_camera_tilt, tilt_speed * delta)
 
 func _reset_camera_tilt():
 	target_camera_tilt = camera_original_rotation  # Define el objetivo como la rotación original
