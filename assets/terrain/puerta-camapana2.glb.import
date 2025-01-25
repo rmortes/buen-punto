@@ -31,6 +31,15 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-_subresources={}
+_subresources={
+"nodes": {
+"PATH:puerta2/Skeleton3D": {
+"rest_pose/external_animation_library": null
+},
+"PATH:puerta2/Skeleton3D/puerta_001": {
+"physics/shape_type": 2
+}
+}
+}
 gltf/naming_version=1
 gltf/embedded_image_handling=1
