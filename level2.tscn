@@ -1,0 +1,102 @@
+[gd_scene load_steps=17 format=3 uid="uid://0irdakywmk86"]
+
+[ext_resource type="PackedScene" uid="uid://cqtyh0ki2darr" path="res://assets/player/player.tscn" id="1_butoy"]
+[ext_resource type="Texture2D" uid="uid://co8qu0ls7wet6" path="res://assets/skybox_material/Spacebox.png" id="2_k6lkf"]
+[ext_resource type="PackedScene" uid="uid://cedvs0kn462ks" path="res://scenes/bubble.tscn" id="3_xxdsb"]
+[ext_resource type="PackedScene" uid="uid://bexknyicuyho3" path="res://components/grav_ball/collectable_ball.tscn" id="4_baq73"]
+[ext_resource type="PackedScene" uid="uid://14x5k7defuvp" path="res://assets/terrain/pedrolo1.glb" id="5_l6iou"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_oirp1"]
+panorama = ExtResource("2_k6lkf")
+
+[sub_resource type="Sky" id="Sky_ip5ns"]
+sky_material = SubResource("PanoramaSkyMaterial_oirp1")
+
+[sub_resource type="Environment" id="Environment_5mqb7"]
+background_mode = 2
+sky = SubResource("Sky_ip5ns")
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_m7kiw"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_i1igx"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1dkfb"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_054se"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_l38je"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_e456i"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6rorj"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_3pf47"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Player" parent="." instance=ExtResource("1_butoy")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_5mqb7")
+
+[node name="Bubble" parent="." instance=ExtResource("3_xxdsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.5448, 4.46136, -155.712)
+
+[node name="TubeObject" type="StaticBody3D" parent="." groups=["scene_manager_entity_nodes"]]
+transform = Transform3D(7.29, 0, 0, 0, 7.29, 0, 0, 0, 7.29, 2.75964, -5.28033, -21.0206)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TubeObject"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0292439, 0)
+shape = SubResource("CylinderShape3D_m7kiw")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TubeObject"]
+mesh = SubResource("CylinderMesh_i1igx")
+
+[node name="CilinderObject" type="StaticBody3D" parent="TubeObject" groups=["scene_manager_entity_nodes"]]
+transform = Transform3D(1.70447, 0, 0, 0, 1.70447, 0, 0, 0, 1.70447, 0.167552, -0.825468, 1.15249)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TubeObject/CilinderObject"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0292439, 0)
+shape = SubResource("CapsuleShape3D_1dkfb")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TubeObject/CilinderObject"]
+mesh = SubResource("CapsuleMesh_054se")
+
+[node name="SphereObject" type="StaticBody3D" parent="." groups=["scene_manager_entity_nodes"]]
+transform = Transform3D(3.525, 0, 0, 0, 3.525, 0, 0, 0, 3.525, -23.3999, 7.26592, -56.9955)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SphereObject"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0292439, 0)
+shape = SubResource("SphereShape3D_l38je")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SphereObject"]
+mesh = SubResource("SphereMesh_e456i")
+
+[node name="BoxObject" type="StaticBody3D" parent="." groups=["scene_manager_entity_nodes"]]
+transform = Transform3D(25, 0, 0, 0, 25, 0, 0, 0, 25, -19.0402, 5.33268, -8.29958)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BoxObject"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0292439, 0)
+shape = SubResource("BoxShape3D_6rorj")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="BoxObject"]
+mesh = SubResource("BoxMesh_3pf47")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.995955, 0.0898504, 0, -0.00779973, 0.0864568, 0.996225, 0.0895112, -0.992196, 0.086808, 0, 66.3084, 0)
+
+[node name="CilinderObject" type="StaticBody3D" parent="." groups=["scene_manager_entity_nodes"]]
+transform = Transform3D(-7.45048e-08, 1.70447, -7.45048e-08, 0, -7.45048e-08, -1.70447, -1.70447, -7.45048e-08, 3.25671e-15, 5.55688, 2.10349, -32.0841)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CilinderObject"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0292439, 0)
+shape = SubResource("CapsuleShape3D_1dkfb")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CilinderObject"]
+mesh = SubResource("CapsuleMesh_054se")
+
+[node name="CollectableBall" parent="." instance=ExtResource("4_baq73")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.7793, 2.49886, -68.5385)
+
+[node name="pedrolo1" parent="." instance=ExtResource("5_l6iou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.31982, -6.55243, -2.55072)
