@@ -36,7 +36,7 @@ sky = SubResource("Sky_ip5ns")
 
 [sub_resource type="BoxMesh" id="BoxMesh_eu7ie"]
 
-[node name="Node3D" type="Node3D"]
+[node name="Node3D2" type="Node3D"]
 
 [node name="Player" parent="." instance=ExtResource("1_vm66x")]
 
