@@ -62,6 +62,9 @@ func _physics_process(delta: float) -> void:
 			velocity.y = jump_velocity
 		landing = true
 		coyote_timer = 0
+		
+	if Input.is_action_just_pressed("quit"):
+		get_tree().quit()
 	
 	if Input.is_action_pressed("ui_up"):
 		time_accelerating = min(time_accelerating + delta, time_to_terminal)
