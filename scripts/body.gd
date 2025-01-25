@@ -31,13 +31,13 @@ var mouse_sensitivity = 0.002
 
 
 const shouts = [
-	[preload("res://assets/sounds/1 zasranets.mp3"), "Засранец", "aaa"],
-	[preload("res://assets/sounds/2 idi v banyu.mp3"), "Иди в баню!", "aaa"],
-	[preload("res://assets/sounds/3 Idi na hui.mp3"), "Иди на хуй", "aaa"],
-	[preload("res://assets/sounds/4 kozyol.mp3"), "Козёл", "aaa"],
-	[preload("res://assets/sounds/5 mudak.mp3"), "Мудак", "aaa"],
-	[preload("res://assets/sounds/7 svolotsch.mp3"), "Сволочь", "aaa"],
-	[preload("res://assets/sounds/8 hui s gory.mp3"), "Хуй с горы", "aaa"],
+	[preload("res://assets/sounds/1 zasranets.mp3"), "Засранец", "¡Espero que tu intenstino funcione correctamente!"],
+	[preload("res://assets/sounds/2 idi v banyu.mp3"), "Иди в баню!", "¡Te mereces un descanso!"],
+	[preload("res://assets/sounds/3 Idi na hui.mp3"), "Иди на хуй", "¡Ve a recoger flores!"],
+	[preload("res://assets/sounds/4 kozyol.mp3"), "Козёл", "¡Majete!"],
+	[preload("res://assets/sounds/5 mudak.mp3"), "Мудак", "¡Burbujas!"],
+	[preload("res://assets/sounds/7 svolotsch.mp3"), "Сволочь", "¡Qué pillastre!"],
+	[preload("res://assets/sounds/8 hui s gory.mp3"), "Хуй с горы", "¡Es un complicado sistema de poleas!"],
 ];
 
 
