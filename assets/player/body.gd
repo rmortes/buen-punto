@@ -8,6 +8,18 @@ extends CharacterBody3D
 @export var time_to_terminal: float = 3.0
 @export var jump_velocity = 4.5
 
+var coyote_time : float = 0.5
+var coyote_timer : float = 0.0
+
+var landing_camera_tilt: float = deg_to_rad(-10)  # Ángulo de inclinación al aterrizar
+var tilt_speed: float = 2.0  # Velocidad de interpolación
+var camera_original_rotation: float = 0.0
+var is_tilting: bool = false
+var target_camera_tilt: float = 0.0
+
+
+var landing : bool = false
+
 var time_accelerating = 0;
 
 # TODO: Esto lo podemos poner en las settings cuando hayan
@@ -15,13 +27,30 @@ var mouse_sensitivity = 0.002
 
 
 func _physics_process(delta: float) -> void:
+	
+	#Coyote jump checkout
+	
+	if is_on_floor():
+		coyote_timer = coyote_time
+		if landing:
+			landing = false
+			_tilt_camera_on_landing()
+	else:
+		coyote_timer = max(0, coyote_timer - delta)
+	
+	if is_tilting:
+		tilt_camera(delta)
+	
+	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
 	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+	if Input.is_action_just_pressed("ui_accept") and coyote_timer > 0:
 		velocity.y = jump_velocity
+		landing = true
+		coyote_timer = 0
 	
 	if Input.is_action_pressed("ui_up"):
 		time_accelerating = min(time_accelerating + delta, time_to_terminal)
@@ -37,11 +66,11 @@ func _physics_process(delta: float) -> void:
 	print(current_acceleration)
 
 	if direction:
-		velocity.x = direction.x * max(current_acceleration, minimum_speed)
-		velocity.z = direction.z *  max(current_acceleration, minimum_speed)
+		velocity.x = lerp(velocity.x, direction.x * max(current_acceleration, minimum_speed), delta * acceleration)
+		velocity.z = lerp(velocity.z, direction.z * max(current_acceleration, minimum_speed), delta * acceleration)
 	else:
-		velocity.x = move_toward(velocity.x, 0, 1/current_acceleration)
-		velocity.z = move_toward(velocity.z, 0, 1/current_acceleration)
+		velocity.x = move_toward(velocity.x, 0, delta * friction * acceleration)
+		velocity.z = move_toward(velocity.z, 0, delta * friction * acceleration)
 
 	move_and_slide()
 
@@ -80,3 +109,43 @@ func _process(delta: float):
 			yAxis = (yAxis+JOY_DEADZONE) * JOY_AXIS_RESCALE
 		$Camera3D.rotate_x(-yAxis * delta * JOY_ROTATION_MULTIPLIER/2)
 		$Camera3D.rotation.x = clampf($Camera3D.rotation.x, -deg_to_rad(70), deg_to_rad(70))
+	
+	
+func _tilt_camera_on_landing():
+	
+	if _is_any_movement_action_pressed():
+		return
+	
+	is_tilting = true
+	camera_original_rotation = $Camera3D.rotation.x  # Guarda la rotación inicial de la cámara
+	target_camera_tilt = camera_original_rotation + landing_camera_tilt  # Define el objetivo de inclinación
+	
+	# Usa un Timer para regresar la cámara a su posición original
+	var timer = Timer.new()
+	timer.wait_time = 0.2  # Tiempo para mantener la inclinación
+	timer.one_shot = true
+	add_child(timer)
+	timer.connect("timeout", Callable(self, "_reset_camera_tilt"))
+	timer.start()
+
+func tilt_camera(delta : float) -> void:
+	$Camera3D.rotation.x = lerp($Camera3D.rotation.x, target_camera_tilt, tilt_speed * delta)
+
+func _reset_camera_tilt():
+	target_camera_tilt = camera_original_rotation  # Define el objetivo como la rotación original
+	var timer = Timer.new()
+	timer.wait_time = 0.2  # Tiempo para mantener la inclinación
+	timer.one_shot = true
+	add_child(timer)
+	timer.connect("timeout", Callable(self, "_stop_camera_tilt"))
+	timer.start()
+	
+	
+func _stop_camera_tilt():
+	is_tilting = false  # Permite que el movimiento termine
+
+func _is_any_movement_action_pressed() -> bool:
+	if velocity.x != 0.0 or velocity.z != 0.0:
+		return true
+	
+	return false

@@ -30,3 +30,8 @@ shape = SubResource("CapsuleShape3D_lxi17")
 [node name="Camera3D" type="Camera3D" parent="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
 script = SubResource("GDScript_fam4x")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.42514, 0)
+omni_range = 4096.0
+omni_attenuation = 0.694
