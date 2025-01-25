@@ -45,11 +45,11 @@ shader_parameter/TintGradient = SubResource("GradientTexture2D_om3rd")
 
 [node name="Player" type="Node3D" groups=["player"]]
 
-[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+[node name="CharacterBody3D" type="CharacterBody3D" parent="." groups=["player"]]
 axis_lock_angular_y = true
 script = ExtResource("1_1ygd6")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" groups=["player"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_lxi17")
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://bexknyicuyho3"]
+[gd_scene load_steps=7 format=3 uid="uid://bexknyicuyho3"]
 
 [ext_resource type="PackedScene" uid="uid://bai1sms6si4mw" path="res://assets/models/BOOL.fbx" id="1_4mv8w"]
 [ext_resource type="Script" path="res://components/grav_ball/collectable_ball.gd" id="2_lc1mx"]
@@ -6,15 +6,62 @@
 [sub_resource type="SphereShape3D" id="SphereShape3D_3qv56"]
 radius = 3.0
 
+[sub_resource type="Animation" id="Animation_mi1y7"]
+resource_name = "brillo"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BOOL/OmniLight3D:light_energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 10, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1, 2)
+}
+
+[sub_resource type="Animation" id="Animation_p36qe"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BOOL/OmniLight3D:light_energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0710r"]
+_data = {
+"RESET": SubResource("Animation_p36qe"),
+"brillo": SubResource("Animation_mi1y7")
+}
+
 [node name="CollectableBall" type="Node3D"]
 script = ExtResource("2_lc1mx")
 
 [node name="BOOL" parent="." instance=ExtResource("1_4mv8w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0631231, 0.563085, 0)
 
+[node name="OmniLight3D" type="OmniLight3D" parent="BOOL"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0486433, -0.582079, 0.438186)
+light_color = Color(0.162737, 0.277863, 0.532282, 1)
+light_energy = 0.0
+
 [node name="Area3D" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("SphereShape3D_3qv56")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_0710r")
+}
+autoplay = "brillo"
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
