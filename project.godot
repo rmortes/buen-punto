@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Game Tempplate"
-run/main_scene="res://levels/level1.tscn"
+run/main_scene="res://scenes/main_scene.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -112,3 +112,7 @@ game_ball={
 [physics]
 
 3d/physics_engine="JoltPhysics3D"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0

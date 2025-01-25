@@ -1,9 +1,12 @@
-[gd_scene load_steps=17 format=3 uid="uid://bah68hxi30kdb"]
+[gd_scene load_steps=20 format=3 uid="uid://bah68hxi30kdb"]
 
 [ext_resource type="PackedScene" uid="uid://cqtyh0ki2darr" path="res://assets/player/player.tscn" id="1_vm66x"]
 [ext_resource type="Texture2D" uid="uid://h7w1y2nno1rb" path="res://tests/bad_texture.jpg" id="2_85n6w"]
 [ext_resource type="Texture2D" uid="uid://co8qu0ls7wet6" path="res://assets/skybox_material/Spacebox.png" id="3_0marq"]
 [ext_resource type="PackedScene" uid="uid://cedvs0kn462ks" path="res://scenes/bubble.tscn" id="4_pjara"]
+[ext_resource type="PackedScene" uid="uid://drk5it48qvh2r" path="res://scenes/capsule.tscn" id="5_l23vc"]
+[ext_resource type="Script" path="res://scripts/fade_in.gd" id="6_5g7d4"]
+[ext_resource type="Script" path="res://scripts/color_rect.gd" id="6_wvs8j"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8s63x"]
 albedo_texture = ExtResource("2_85n6w")
@@ -395,3 +398,24 @@ shape = SubResource("BoxShape3D_fx4xw")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="BoxObject14"]
 mesh = SubResource("BoxMesh_eu7ie")
+
+[node name="Capsule" parent="." instance=ExtResource("5_l23vc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.16679, 0.470897, 0)
+
+[node name="FadeOut" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0962047, 0.0962048, 0.0962047, 1)
+script = ExtResource("6_wvs8j")
+
+[node name="FadeIn" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0962047, 0.0962048, 0.0962047, 1)
+script = ExtResource("6_5g7d4")
