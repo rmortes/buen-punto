@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dm77a2is2df6j"]
+
+[ext_resource type="Shader" path="res://assets/shaders/soap_bubble.gdshader" id="1_uyoum"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_uyoum")
