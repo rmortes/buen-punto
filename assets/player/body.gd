@@ -18,20 +18,23 @@ var camera_original_rotation: float = 0.0
 var is_tilting: bool = false
 var target_camera_tilt: float = 0.0
 
+var _jumping := true;
 
 var landing : bool = false
 
 var time_accelerating = 0;
+
+var _current_acceleration: float;
 
 # TODO: Esto lo podemos poner en las settings cuando hayan
 var mouse_sensitivity = 0.002
 
 
 func _physics_process(delta: float) -> void:
-	
 	#Coyote jump checkout
 	
 	if is_on_floor():
+		_jumping = false
 		coyote_timer = coyote_time
 		if landing:
 			landing = false
@@ -49,6 +52,7 @@ func _physics_process(delta: float) -> void:
 
 	# Handle jump.
 	if (Input.is_action_just_pressed("ui_accept") or Input.is_action_just_pressed("jump")) and coyote_timer > 0:
+		_jumping = true
 		velocity.y = jump_velocity
 		landing = true
 		coyote_timer = 0
@@ -64,7 +68,8 @@ func _physics_process(delta: float) -> void:
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	# var current_acceleration = min(terminal_speed, acceleration ** (time_accelerating / time_to_terminal))
 	var current_acceleration = min(terminal_speed, acceleration - (time_to_terminal / ((time_to_terminal / acceleration)+time_accelerating)))
-	print(current_acceleration)
+
+	_current_acceleration = current_acceleration
 
 	if direction:
 		velocity.x = lerp(velocity.x, direction.x * max(current_acceleration, minimum_speed), delta * acceleration)

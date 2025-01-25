@@ -22,6 +22,7 @@ func _process(delta: float) -> void:
 [node name="Player" type="Node3D"]
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+axis_lock_angular_y = true
 script = ExtResource("1_1ygd6")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
@@ -38,6 +39,7 @@ offset_bottom = 23.0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
 script = ExtResource("2_67hic")
+metadata/_edit_use_anchors_ = true
 
 [node name="OxygenTimer" type="Timer" parent="CharacterBody3D"]
 unique_name_in_owner = true
