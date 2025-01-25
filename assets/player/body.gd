@@ -1,4 +1,5 @@
 extends CharacterBody3D
+@onready var oxygen_timer = $OxygenTimer
 
 
 @export var acceleration: float = 15.0
