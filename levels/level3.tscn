@@ -984,3 +984,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100.664, 11.0525, -119.819)
 
 [node name="CollectableBall19" parent="." instance=ExtResource("4_yj05k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.0005, 6.80142, -71.5459)
+
+[node name="CilinderObject23" type="StaticBody3D" parent="." groups=["scene_manager_entity_nodes"]]
+transform = Transform3D(14.221, 0, 0, 0, 14.221, 0, 0, 0, 14.221, 95.1803, -20.3123, -666.383)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CilinderObject23"]
+shape = SubResource("CapsuleShape3D_ufeum")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CilinderObject23"]
+mesh = SubResource("CapsuleMesh_i1e5c")
+skeleton = NodePath("../../CilinderObject2")
