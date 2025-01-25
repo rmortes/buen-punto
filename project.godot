@@ -29,6 +29,7 @@ Signal_Debugger="*res://addons/SignalVisualizer/Debugger/SignalDebugger.gd"
 RuntimeDebugTools="*res://addons/runtime_debug_tools/scenes/remote_inspector.tscn"
 SceneManager="*res://addons/scene_manager/SceneManager.tscn"
 GuiTransitions="*res://addons/simple-gui-transitions/singleton.gd"
+LevelData="*res://singletons/LevelData.gd"
 
 [dialogic]
 

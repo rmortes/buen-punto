@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://drk5it48qvh2r"]
+
+[ext_resource type="Script" path="res://scripts/capsule.gd" id="1_5aqgi"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_54xw0"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ek48y"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sc0ey"]
+
+[node name="Capsule" type="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0639206, 0, 0)
+script = ExtResource("1_5aqgi")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1.025, 0, 0, 0, 1.025, 0, 0, 0, 1.025, 0, 0, 0)
+shape = SubResource("BoxShape3D_54xw0")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_ek48y")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.00102, 0)
+shape = SubResource("BoxShape3D_sc0ey")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
