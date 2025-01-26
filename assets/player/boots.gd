@@ -16,6 +16,7 @@ const steps = [
 ];
 
 @onready var character_body_3d: CharacterBody3D = $"../CharacterBody3D"
+@onready var dynamic_music_player: AudioStreamPlayer = $"../Music/AudioStreamPlayer3D"
 @onready var was_on_floor := character_body_3d.is_on_floor()
 
 func easingFunction(x: float) -> float: 
@@ -29,6 +30,10 @@ func _process(delta: float) -> void:
 	var speed := character_body_3d.velocity.length() / 15
 	var interval : float = lerp(4, 1, speed) / 4
 	wait_time = easingFunction(interval) / 2
+	var music_volume = min(1, 1 - easingFunction(interval) + .1)
+	var stream : AudioStreamSynchronized = dynamic_music_player.stream
+	stream.set_sync_stream_volume(1, -40 + 30 * music_volume)
+	
 	
 	if (
 		(was_on_floor and not character_body_3d.is_on_floor())

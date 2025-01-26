@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cqtyh0ki2darr"]
+[gd_scene load_steps=17 format=3 uid="uid://cqtyh0ki2darr"]
 
 [ext_resource type="Script" path="res://scripts/body.gd" id="1_1ygd6"]
 [ext_resource type="Script" path="res://scripts/label.gd" id="2_67hic"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://assets/player/boots.gd" id="7_sg4of"]
 [ext_resource type="Script" path="res://addons/label_font_auto_sizer/label_auto_sizer.gd" id="8_i4scn"]
 [ext_resource type="FontFile" uid="uid://caqb8y06jsmhp" path="res://assets/fonts/Kremlin Premier.ttf" id="8_qthw6"]
+[ext_resource type="PackedScene" uid="uid://bufub5330m5fm" path="res://components/music.tscn" id="10_4rp27"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lxi17"]
 
@@ -106,6 +107,7 @@ clip_text = true
 script = ExtResource("8_i4scn")
 _max_size = 42
 _current_font_size = 42
+_size_just_modified_by_autosizer = true
 _editor_defaults_set = true
 
 [node name="OxygenTimer" type="Timer" parent="CharacterBody3D"]
@@ -126,5 +128,7 @@ script = ExtResource("6_bfcna")
 wait_time = 0.25
 autostart = true
 script = ExtResource("7_sg4of")
+
+[node name="Music" parent="." instance=ExtResource("10_4rp27")]
 
 [connection signal="timeout" from="Boots" to="Boots" method="_on_timeout"]
