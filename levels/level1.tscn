@@ -1,10 +1,11 @@
-[gd_scene load_steps=22 format=3 uid="uid://bah68hxi30kdb"]
+[gd_scene load_steps=23 format=3 uid="uid://bah68hxi30kdb"]
 
 [ext_resource type="Script" path="res://scripts/ded.gd" id="1_tooek"]
 [ext_resource type="PackedScene" uid="uid://cqtyh0ki2darr" path="res://assets/player/player.tscn" id="1_vm66x"]
 [ext_resource type="Texture2D" uid="uid://co8qu0ls7wet6" path="res://assets/skybox_material/Spacebox.png" id="3_0marq"]
 [ext_resource type="PackedScene" uid="uid://cedvs0kn462ks" path="res://scenes/bubble.tscn" id="4_pjara"]
 [ext_resource type="PackedScene" uid="uid://bexknyicuyho3" path="res://components/grav_ball/collectable_ball.tscn" id="5_urojk"]
+[ext_resource type="PackedScene" uid="uid://14x5k7defuvp" path="res://assets/terrain/pedrolos/pedrolo1.glb" id="5_wldel"]
 [ext_resource type="Script" path="res://scripts/fade_in.gd" id="6_g4p3c"]
 [ext_resource type="PackedScene" uid="uid://csihci1noles1" path="res://scenes/capsule.tscn" id="7_p25v7"]
 [ext_resource type="Script" path="res://scripts/color_rect.gd" id="8_sjgqu"]
@@ -80,17 +81,8 @@ shape = SubResource("SphereShape3D_qnidc")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="SphereObject"]
 mesh = SubResource("SphereMesh_x4ma0")
 
-[node name="BoxObject2" type="StaticBody3D" parent="." groups=["scene_manager_entity_nodes"]]
-transform = Transform3D(35.25, 0, 0, 0, 35.25, 0, 0, 0, 35.25, 0, 4.94222, 21.2871)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="BoxObject2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0292439, 0)
-shape = SubResource("BoxShape3D_fx4xw")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="BoxObject2"]
-transform = Transform3D(1, -5.23599e-05, 0, 5.23599e-05, 1, 0, 0, 0, 1, 0, 0, 0)
-mesh = SubResource("BoxMesh_eu7ie")
-skeleton = NodePath("../../BoxObject2")
+[node name="pedrolo1" parent="." instance=ExtResource("5_wldel")]
+transform = Transform3D(2.34919, 0, 0.589814, 0, 2.4221, 0, -0.589814, 0, 2.34919, -0.00299084, 2.42539, 17.0906)
 
 [node name="BoxObject" type="StaticBody3D" parent="." groups=["scene_manager_entity_nodes"]]
 transform = Transform3D(25, 0, 0, 0, 25, 0, 0, 0, 25, -19.0402, 5.33268, -8.29958)
@@ -806,7 +798,7 @@ shape = SubResource("BoxShape3D_fx4xw")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="BoxObject40"]
 mesh = SubResource("BoxMesh_eu7ie")
-skeleton = NodePath("../../BoxObject2")
+skeleton = NodePath("")
 
 [node name="BoxObject41" type="StaticBody3D" parent="." groups=["scene_manager_entity_nodes"]]
 transform = Transform3D(35.25, 0, 0, 0, 35.25, 0, 0, 0, 35.25, 0, -16.9943, -30.2608)
@@ -817,7 +809,7 @@ shape = SubResource("BoxShape3D_fx4xw")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="BoxObject41"]
 mesh = SubResource("BoxMesh_eu7ie")
-skeleton = NodePath("../../BoxObject2")
+skeleton = NodePath("")
 
 [node name="BoxObject42" type="StaticBody3D" parent="." groups=["scene_manager_entity_nodes"]]
 transform = Transform3D(35.25, 0, 0, 0, 35.25, 0, 0, 0, 35.25, -8.69727, -16.9943, -35.166)
@@ -828,7 +820,7 @@ shape = SubResource("BoxShape3D_fx4xw")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="BoxObject42"]
 mesh = SubResource("BoxMesh_eu7ie")
-skeleton = NodePath("../../BoxObject2")
+skeleton = NodePath("")
 
 [node name="BoxObject43" type="StaticBody3D" parent="." groups=["scene_manager_entity_nodes"]]
 transform = Transform3D(35.25, 0, 0, 0, 35.25, 0, 0, 0, 35.25, -37.0609, -16.9943, -94.3289)
@@ -839,7 +831,7 @@ shape = SubResource("BoxShape3D_fx4xw")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="BoxObject43"]
 mesh = SubResource("BoxMesh_eu7ie")
-skeleton = NodePath("../../BoxObject2")
+skeleton = NodePath("")
 
 [node name="BoxObject44" type="StaticBody3D" parent="." groups=["scene_manager_entity_nodes"]]
 transform = Transform3D(35.25, 0, 0, 0, 35.25, 0, 0, 0, 35.25, -6.43646, -16.9943, -106.496)
@@ -850,7 +842,7 @@ shape = SubResource("BoxShape3D_fx4xw")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="BoxObject44"]
 mesh = SubResource("BoxMesh_eu7ie")
-skeleton = NodePath("../../BoxObject2")
+skeleton = NodePath("")
 
 [node name="BoxObject45" type="StaticBody3D" parent="." groups=["scene_manager_entity_nodes"]]
 transform = Transform3D(31.005, 0, 0, 0, 31.005, 0, 0, 0, 31.005, -42.9245, 1.46181, -198.984)
