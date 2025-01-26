@@ -3,13 +3,12 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://ofrk8fc75blt"
-path="res://.godot/imported/viga2.glb-e80b6791b925778318bcf1356757cb2f.scn"
+uid="uid://bn5qr57fob5wq"
+valid=false
 
 [deps]
 
 source_file="res://assets/terrain/viga2.glb"
-dest_files=["res://.godot/imported/viga2.glb-e80b6791b925778318bcf1356757cb2f.scn"]
 
 [params]
 
@@ -31,13 +30,6 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-_subresources={
-"nodes": {
-"PATH:Antenna_broken_0": {
-"generate/physics": true,
-"physics/shape_type": 2
-}
-}
-}
+_subresources={}
 gltf/naming_version=1
 gltf/embedded_image_handling=1

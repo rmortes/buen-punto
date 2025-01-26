@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://cgy0fpvliphr2"]
+[gd_scene load_steps=7 format=3 uid="uid://cgy0fpvliphr2"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_7peac"]
 [ext_resource type="Texture2D" uid="uid://bds1nd4g4ly6h" path="res://assets/materials/Blank_button.png" id="2_wwt53"]
 [ext_resource type="Script" path="res://scripts/fade_in.gd" id="3_17i7g"]
 [ext_resource type="Script" path="res://scripts/focus.gd" id="3_ctxqr"]
 [ext_resource type="Texture2D" uid="uid://dk1f07kgylfy3" path="res://assets/materials/box_background.png" id="3_hnu4a"]
+[ext_resource type="Texture2D" uid="uid://cp5wo031ark8g" path="res://assets/materials/FocusButton.png" id="4_hblyc"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -22,29 +23,92 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("3_hnu4a")
 
-[node name="TextureButton" type="TextureButton" parent="TextureRect"]
+[node name="MarginContainer" type="MarginContainer" parent="TextureRect"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_top = 140
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TextureRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 82
+text = "NOMBRE DEL JUEGO"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="TextureButton" type="TextureButton" parent="TextureRect/MarginContainer/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(140, 70)
+layout_mode = 2
 texture_normal = ExtResource("2_wwt53")
-texture_focused = ExtResource("3_hnu4a")
+texture_focused = ExtResource("4_hblyc")
+stretch_mode = 0
 script = ExtResource("3_ctxqr")
 
-[node name="Label" type="Label" parent="TextureRect/TextureButton"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-text = "Play"
+[node name="Label" type="Label" parent="TextureRect/MarginContainer/VBoxContainer/VBoxContainer/TextureButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_neighbor_bottom = NodePath("../../TextureButton2")
+theme_override_font_sizes/font_size = 24
+text = "Jugar"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureButton2" type="TextureButton" parent="TextureRect/MarginContainer/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(140, 70)
+layout_mode = 2
+texture_normal = ExtResource("2_wwt53")
+texture_focused = ExtResource("4_hblyc")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="TextureRect/MarginContainer/VBoxContainer/VBoxContainer/TextureButton2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_neighbor_top = NodePath("../../TextureButton")
+focus_neighbor_bottom = NodePath("../../TextureButton3")
+theme_override_font_sizes/font_size = 24
+text = "Ajustes"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureButton3" type="TextureButton" parent="TextureRect/MarginContainer/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+texture_normal = ExtResource("2_wwt53")
+texture_focused = ExtResource("4_hblyc")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="TextureRect/MarginContainer/VBoxContainer/VBoxContainer/TextureButton3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_neighbor_top = NodePath("../../TextureButton2")
+theme_override_font_sizes/font_size = 24
+text = "Nada, pero gracias por preguntar"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="FadeIn" type="ColorRect" parent="."]
 visible = false
@@ -57,4 +121,5 @@ grow_vertical = 2
 color = Color(0.0962047, 0.0962048, 0.0962047, 1)
 script = ExtResource("3_17i7g")
 
-[connection signal="pressed" from="TextureRect/TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="TextureRect/MarginContainer/VBoxContainer/VBoxContainer/TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="TextureRect/MarginContainer/VBoxContainer/VBoxContainer/TextureButton3" to="." method="_on_texture_button_3_pressed"]

@@ -3,13 +3,12 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://14x5k7defuvp"
-path="res://.godot/imported/pedrolo1.glb-f5f7fffdb037b5b07e8d6571baba3d09.scn"
+uid="uid://bqa406f6iqsrl"
+valid=false
 
 [deps]
 
 source_file="res://assets/terrain/pedrolo1.glb"
-dest_files=["res://.godot/imported/pedrolo1.glb-f5f7fffdb037b5b07e8d6571baba3d09.scn"]
 
 [params]
 
@@ -31,13 +30,6 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-_subresources={
-"nodes": {
-"PATH:hojas1": {
-"generate/physics": true,
-"physics/shape_type": 1
-}
-}
-}
+_subresources={}
 gltf/naming_version=1
 gltf/embedded_image_handling=1

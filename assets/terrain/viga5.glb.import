@@ -3,13 +3,12 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bryewbbf0r2q6"
-path="res://.godot/imported/viga5.glb-7d8cdf6e354b16eaff48fb907a3d68c9.scn"
+uid="uid://ct0f4bqj3dqud"
+valid=false
 
 [deps]
 
 source_file="res://assets/terrain/viga5.glb"
-dest_files=["res://.godot/imported/viga5.glb-7d8cdf6e354b16eaff48fb907a3d68c9.scn"]
 
 [params]
 
@@ -31,13 +30,6 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-_subresources={
-"nodes": {
-"PATH:Antenna_1": {
-"generate/physics": true,
-"physics/shape_type": 2
-}
-}
-}
+_subresources={}
 gltf/naming_version=1
 gltf/embedded_image_handling=1

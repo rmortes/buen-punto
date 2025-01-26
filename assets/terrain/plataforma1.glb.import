@@ -3,13 +3,12 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://5chc26ks5boh"
-path="res://.godot/imported/plataforma1.glb-834591a567c4fcacbd1285f078be534f.scn"
+uid="uid://cmjbgamifmu2u"
+valid=false
 
 [deps]
 
 source_file="res://assets/terrain/plataforma1.glb"
-dest_files=["res://.godot/imported/plataforma1.glb-834591a567c4fcacbd1285f078be534f.scn"]
 
 [params]
 
@@ -31,13 +30,6 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-_subresources={
-"nodes": {
-"PATH:Solar_big_whole": {
-"generate/physics": true,
-"physics/shape_type": 2
-}
-}
-}
+_subresources={}
 gltf/naming_version=1
 gltf/embedded_image_handling=1
