@@ -1,6 +1,8 @@
 extends CharacterBody3D
 @onready var oxygen_timer = $OxygenTimer
 
+const ASTRO_NUTS_RAGDOLL = preload("res://assets/models/astro_nuts_ragdoll.tscn")
+var ragdoll_instance: RigidBody3D
 
 @export var acceleration: float = 15.0
 @export var friction: float = 2.0
@@ -9,6 +11,7 @@ extends CharacterBody3D
 @export var time_to_terminal: float = 3.0
 @export var jump_velocity = 4.5
 @export var jump_gravity_reducer := .5
+
 
 var coyote_time : float = 0.5
 var coyote_timer : float = 0.0
@@ -39,8 +42,37 @@ const shouts = [
 	[preload("res://assets/sounds/8 hui s gory.mp3"), "Хуй с горы", "¡Es un complicado sistema de poleas!"],
 ];
 
+func die() -> void:
+	if ragdoll_instance == null:
+		$CollisionShape3D.disabled = true
+		ragdoll_instance = ASTRO_NUTS_RAGDOLL.instantiate()
+		ragdoll_instance.global_position = global_position
+		get_tree().root.add_child(ragdoll_instance)
+		for c in ragdoll_instance.get_child(0).get_child(0).get_children():
+			if c is PhysicalBone3D:
+				c.apply_central_impulse(velocity)
+
 
 func _physics_process(delta: float) -> void:
+	# if is ded
+	if ragdoll_instance != null:
+		velocity = Vector3.ZERO
+		Engine.time_scale = 0.5
+		if (
+			Input.is_action_just_pressed("ui_left")
+			or Input.is_action_just_pressed("ui_right")
+			or Input.is_action_just_pressed("ui_up")
+			or Input.is_action_just_pressed("ui_down")
+			or Input.is_action_just_pressed("jump")
+			or Input.is_action_just_pressed("ui_accept")
+			or Input.is_action_just_pressed("quit")):
+			var scene_path = LevelData.LEVEL_PATH + str(LevelData.level) + ".tscn"
+			var game_scene = load(scene_path).instantiate()
+			get_parent().get_parent().queue_free()
+			get_tree().root.add_child(game_scene)
+		# look_at(ragdoll_instance.global_position)
+		# camera.look_at(ragdoll_instance.global_position)
+		
 	#Coyote jump checkout
 	if is_on_floor():
 		coyote_timer = coyote_time
@@ -95,9 +127,11 @@ func _physics_process(delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0, delta * friction * acceleration)
 
 	move_and_slide()
+		
 
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	Engine.time_scale = 1
 
 # TODO: Esto sabe Dios que no funciona con mando
 func _input(event):

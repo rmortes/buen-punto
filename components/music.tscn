@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://bufub5330m5fm"]
+
+[ext_resource type="AudioStream" uid="uid://cs6cnrb17lhat" path="res://assets/sounds/track_suave.wav" id="1_h56pe"]
+[ext_resource type="AudioStream" uid="uid://b7a2rrmfktsdv" path="res://assets/sounds/track_fuerte.wav" id="2_lwvk7"]
+
+[sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_oy3eg"]
+stream_count = 2
+stream_0/stream = ExtResource("1_h56pe")
+stream_0/volume = 0.0
+stream_1/stream = ExtResource("2_lwvk7")
+stream_1/volume = -60.0
+
+[node name="Music" type="Node"]
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamSynchronized_oy3eg")
+autoplay = true
+bus = &"Space"
