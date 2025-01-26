@@ -9,7 +9,7 @@
 [ext_resource type="Script" path="res://assets/player/boots.gd" id="7_sg4of"]
 [ext_resource type="Script" path="res://addons/label_font_auto_sizer/label_auto_sizer.gd" id="8_i4scn"]
 [ext_resource type="FontFile" uid="uid://caqb8y06jsmhp" path="res://assets/fonts/Kremlin Premier.ttf" id="8_qthw6"]
-[ext_resource type="PackedScene" uid="uid://bufub5330m5fm" path="res://components/music.tscn" id="10_4rp27"]
+[ext_resource type="PackedScene" path="res://components/music.tscn" id="10_4rp27"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lxi17"]
 

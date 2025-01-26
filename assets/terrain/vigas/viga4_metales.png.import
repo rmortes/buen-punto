@@ -2,14 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://tur16cbdqixr"
+uid="uid://x6daumb0sukj"
 path.s3tc="res://.godot/imported/viga4_metales.png-29f42492be84c69254d38cef398ceec4.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
-}
-generator_parameters={
-"md5": "d454c2827b9f09c708c25a68fafe0d8a"
 }
 
 [deps]

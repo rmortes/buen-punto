@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://csihci1noles1" path="res://scenes/capsule.tscn" id="6_8dtak"]
 [ext_resource type="Script" path="res://scripts/fade_in.gd" id="7_fj4r7"]
 [ext_resource type="Script" path="res://scripts/color_rect.gd" id="8_4j8jt"]
-[ext_resource type="PackedScene" path="res://scenes/spawn.tscn" id="9_37dyf"]
+[ext_resource type="PackedScene" uid="uid://bouo6sf3vc5ew" path="res://scenes/spawn.tscn" id="9_37dyf"]
 [ext_resource type="PackedScene" uid="uid://14x5k7defuvp" path="res://assets/terrain/pedrolos/pedrolo1.glb" id="9_bnpp5"]
 [ext_resource type="PackedScene" uid="uid://dv13m7ean1ox3" path="res://assets/terrain/escombros/escombro1.glb" id="10_x2dvg"]
 [ext_resource type="PackedScene" uid="uid://bnkftp6n2lbyg" path="res://assets/terrain/escombros/escombrao.glb" id="11_p1o7x"]
