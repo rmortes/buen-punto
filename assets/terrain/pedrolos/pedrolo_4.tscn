@@ -1,0 +1,12 @@
+[gd_scene load_steps=4 format=3 uid="uid://cjwheed6ygvqj"]
+
+[ext_resource type="PackedScene" uid="uid://cew7o7be11ftw" path="res://assets/terrain/pedrolos/pedrolo3.glb" id="1_i5x1t"]
+[ext_resource type="Texture2D" uid="uid://bkq2dmnrakygv" path="res://assets/terrain/pedrolos/predolos2.png" id="2_6c73h"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h32fm"]
+albedo_texture = ExtResource("2_6c73h")
+
+[node name="pedrolo3" instance=ExtResource("1_i5x1t")]
+
+[node name="hojas2_001" parent="." index="0"]
+material_override = SubResource("StandardMaterial3D_h32fm")
