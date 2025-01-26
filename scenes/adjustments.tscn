@@ -1,13 +1,16 @@
-[gd_scene load_steps=9 format=3 uid="uid://c50cieymxv17n"]
+[gd_scene load_steps=12 format=3 uid="uid://fb3vc2ye7l6t"]
 
 [ext_resource type="Texture2D" uid="uid://dk1f07kgylfy3" path="res://assets/materials/box_background.png" id="1_66kjl"]
 [ext_resource type="Script" path="res://scripts/adjustments.gd" id="1_jjkdn"]
 [ext_resource type="Texture2D" uid="uid://bds1nd4g4ly6h" path="res://assets/materials/Blank_button.png" id="2_egnpl"]
 [ext_resource type="Script" path="res://scripts/h_slider.gd" id="3_tgosx"]
 [ext_resource type="Texture2D" uid="uid://cp5wo031ark8g" path="res://assets/materials/FocusButton.png" id="3_vni6m"]
+[ext_resource type="Script" path="res://scenes/h_slider.gd" id="4_qf4of"]
+[ext_resource type="Script" path="res://scenes/voice_slider.gd" id="5_676g4"]
 [ext_resource type="Texture2D" uid="uid://cygrg38e5ajqv" path="res://assets/materials/exit_button.png" id="5_one3y"]
 [ext_resource type="Texture2D" uid="uid://dhkghf7brwrko" path="res://assets/materials/return_button.png" id="6_c42fl"]
 [ext_resource type="Script" path="res://scripts/controles.gd" id="7_v48fi"]
+[ext_resource type="PackedScene" uid="uid://bq7ibhm0txl5p" path="res://addons/keychain/ShortcutEdit.tscn" id="10_2o6t5"]
 
 [node name="Adjustments" type="Control"]
 layout_mode = 3
@@ -80,6 +83,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 focus_neighbor_top = NodePath("../../HBoxContainer/HSlider")
 focus_neighbor_bottom = NodePath("../../HBoxContainer3/HSlider")
+script = ExtResource("4_qf4of")
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="TextureRect/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -96,6 +100,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 focus_neighbor_top = NodePath("../../HBoxContainer2/HSlider")
 focus_neighbor_bottom = NodePath("../../ControlesButton")
+script = ExtResource("5_676g4")
 
 [node name="ControlesButton" type="TextureButton" parent="TextureRect/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(180, 90)
@@ -157,6 +162,9 @@ text = "Controles"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="ShortcutEdit" parent="TextureRect/Controles/MarginContainer/VBoxContainer" instance=ExtResource("10_2o6t5")]
+layout_mode = 2
+
 [node name="TextureButton" type="TextureButton" parent="TextureRect/Controles"]
 z_index = 2
 custom_minimum_size = Vector2(80, 0)
@@ -172,6 +180,8 @@ mouse_force_pass_scroll_events = false
 texture_normal = ExtResource("5_one3y")
 stretch_mode = 0
 
+[connection signal="value_changed" from="TextureRect/MarginContainer/VBoxContainer/HBoxContainer/HSlider" to="TextureRect/MarginContainer/VBoxContainer/HBoxContainer/HSlider" method="_on_value_changed"]
+[connection signal="value_changed" from="TextureRect/MarginContainer/VBoxContainer/HBoxContainer2/HSlider" to="TextureRect/MarginContainer/VBoxContainer/HBoxContainer2/HSlider" method="_on_value_changed"]
 [connection signal="pressed" from="TextureRect/MarginContainer/VBoxContainer/ControlesButton" to="." method="_on_controles_button_pressed"]
 [connection signal="pressed" from="TextureRect/Return" to="." method="_on_return_pressed"]
 [connection signal="pressed" from="TextureRect/Controles/TextureButton" to="TextureRect/Controles" method="_on_texture_button_pressed"]

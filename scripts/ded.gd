@@ -30,4 +30,11 @@ func _on_area_3d_body_entered(body):
 		body.die()
 		var kirbI = randi_range(0, len(kirbies)-1)
 		var kirbo = kirbies[kirbI]
-		SoundManager.play_sound(kirbo, "Voice")
+		SoundManager.play_sound(kirbo, "Voice").finished.connect(func(): 
+			if body and body.get_node("Camera") and body.get_node("Camera").get_node("CanvasLayer") and body.get_node("Camera").get_node("CanvasLayer").get_node("Subtitulos"):
+				body.get_node("Camera").get_node("CanvasLayer").get_node("Subtitulos").text = ''
+		)
+		body.get_node("Camera").get_node("CanvasLayer").get_node("Subtitulos").text = "*experiences exotic hypoxia in russian*"
+		
+		await get_tree().create_timer(3.0).timeout
+		if body: body.tryContinue()
