@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cqtyh0ki2darr" path="res://assets/player/player.tscn" id="1_pwoju"]
 [ext_resource type="Texture2D" uid="uid://co8qu0ls7wet6" path="res://assets/skybox_material/Spacebox.png" id="2_tea85"]
 [ext_resource type="PackedScene" uid="uid://cedvs0kn462ks" path="res://scenes/bubble.tscn" id="3_yjfhg"]
-[ext_resource type="PackedScene" uid="uid://bexknyicuyho3" path="res://components/grav_ball/collectable_ball.tscn" id="4_yj05k"]
+[ext_resource type="PackedScene" path="res://components/grav_ball/collectable_ball.tscn" id="4_yj05k"]
 [ext_resource type="PackedScene" uid="uid://csihci1noles1" path="res://scenes/capsule.tscn" id="5_y6cl1"]
 [ext_resource type="Script" path="res://scripts/fade_in.gd" id="6_qsha3"]
 [ext_resource type="Script" path="res://scripts/color_rect.gd" id="7_vy2ft"]
