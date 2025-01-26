@@ -15,3 +15,7 @@ func _process(delta):
 func _on_texture_button_pressed():
 	var scene_path = LevelData.LEVEL_PATH + str(LevelData.level) + ".tscn"
 	fade_in.start_fade_out(scene_path)
+
+
+func _on_texture_button_3_pressed():
+	get_tree().quit()
