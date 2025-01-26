@@ -31,7 +31,7 @@
 [ext_resource type="PackedScene" uid="uid://cgghca83h2g4l" path="res://assets/terrain/escombros/escombro4.glb" id="30_8u3ss"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_q3n03"]
-panorama = ExtResource("3_ng27p")
+panorama = ExtResource("3_0marq")
 
 [sub_resource type="Sky" id="Sky_w2exd"]
 sky_material = SubResource("PanoramaSkyMaterial_q3n03")
@@ -48,7 +48,7 @@ sky = SubResource("Sky_w2exd")
 size = Vector3(236.926, 0.001, 293.956)
 
 [node name="Node3D2" type="Node3D"]
-script = ExtResource("1_shcmx")
+script = ExtResource("1_tooek")
 
 [node name="Player" parent="." instance=ExtResource("1_vm66x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.463799, 0.507374, -1.13271)
@@ -56,8 +56,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.463799, 0.507374, -1.13271)
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_5w4k4")
 
-[node name="Bubble" parent="." instance=ExtResource("4_cxysc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.47164, 3.37976, -17.4027)
+[node name="Bubble" parent="." instance=ExtResource("4_pjara")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.5448, 4.46136, -155.712)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.995955, 0.0898504, 0, -0.00779973, 0.0864568, 0.996225, 0.0895112, -0.992196, 0.086808, 0, 66.3084, 0)
@@ -171,7 +171,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.0962047, 0.0962048, 0.0962047, 1)
-script = ExtResource("7_fj4r7")
+script = ExtResource("6_g4p3c")
 
 [node name="FadeOut" type="ColorRect" parent="."]
 anchors_preset = 15
@@ -180,31 +180,32 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.0962047, 0.0962048, 0.0962047, 1)
-script = ExtResource("8_4j8jt")
+script = ExtResource("8_sjgqu")
 fade_duration = 0.8
 
 [node name="Capsule2" parent="." instance=ExtResource("9_ib351")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.40853, -0.0174479, -1.56061)
 
-[node name="pedrolo1" parent="." instance=ExtResource("9_bnpp5")]
-transform = Transform3D(0.562141, 0, -0.827041, 0, 1, 0, 0.827041, 0, 0.562141, -0.477261, -6.46173, -5.5275)
+[node name="pedrolo1" parent="." instance=ExtResource("5_wldel")]
+transform = Transform3D(2.34919, 0, 0.589814, 0, 2.4221, 0, -0.589814, 0, 2.34919, -0.00299084, 2.42539, 17.0906)
 
-[node name="pedrolo2" parent="." instance=ExtResource("9_bnpp5")]
-transform = Transform3D(0.562141, 0, -0.827041, -0.814293, 0.174903, -0.553476, 0.144652, 0.984586, 0.0983201, -0.477261, 0.235797, 6.62557)
+[node name="pedrolo13" parent="." instance=ExtResource("5_wldel")]
+transform = Transform3D(-0.155882, 3.56188, 0.0296043, -0.248728, -0.0404448, 3.55649, 3.55331, 0.153426, 0.25025, -68.39, 4.39141, -123.211)
 
-[node name="escombro1" parent="." instance=ExtResource("10_x2dvg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.43156, 0.165004, -11.6404)
+[node name="pedrolo15" parent="." instance=ExtResource("5_wldel")]
+transform = Transform3D(-1.74195, -0.327366, 1.65076, -0.140902, 2.39586, 0.326442, -1.677, 0.138743, -1.74212, -2.64869, 7.48186, -198.885)
 
-[node name="escombrao" parent="." instance=ExtResource("11_p1o7x")]
-transform = Transform3D(-0.0540383, 0.134765, 0.989403, -0.972149, -0.233391, -0.021306, 0.228047, -0.962999, 0.143624, 5.31462, 1.44956, -4.82809)
+[node name="pedrolo10" parent="." instance=ExtResource("5_wldel")]
+transform = Transform3D(-0.976772, -0.467891, 3.05606, -0.0280896, 3.20617, 0.481894, -3.09154, 0.118699, -0.969939, 8.86679, 2.42539, -164.194)
 
-[node name="escombrao2" parent="." instance=ExtResource("11_p1o7x")]
-transform = Transform3D(-0.0757631, 0.156473, 1.40592, -1.36298, -0.270986, -0.0302753, 0.319728, -1.11812, 0.204086, 2.42757, 0.880401, -9.11076)
+[node name="pedrolo7" parent="." instance=ExtResource("5_wldel")]
+transform = Transform3D(-2.99742, -0.201505, 1.16594, -0.0279182, 3.18659, 0.478953, -1.1829, 0.435397, -2.96576, 21.9257, 5.92577, -91.3719)
 
-[node name="escombro4" parent="." instance=ExtResource("12_m0mgq")]
-transform = Transform3D(-0.999885, 0, 0.0151315, 0, 1, 0, -0.0151315, 0, -0.999885, -2.93349, -1.32732, -27.981)
+[node name="pedrolo12" parent="." instance=ExtResource("5_wldel")]
+transform = Transform3D(-0.109509, -2.11637, 0.0399119, -3.2913, 0.0640574, -0.220406, 0.391244, -0.0534935, -1.84297, -35.7059, 9.56053, -54.2156)
 
-[node name="Area3D" type="Area3D" parent="."]
+[node name="pedrolo11" parent="." instance=ExtResource("5_wldel")]
+transform = Transform3D(-0.69791, 1.00138, 2.9824, 0.317263, 3.06173, -0.95378, -3.12999, 0.0870597, -0.761679, -60.4645, 7.84567, -76.1221)
 
 [node name="pedrolo2" parent="." instance=ExtResource("11_vt8td")]
 transform = Transform3D(1.38846, 0, 0, 0, 1.27449, -0.550912, 0, 0.550912, 1.27449, -16.8916, 3.54166, -4.91017)
