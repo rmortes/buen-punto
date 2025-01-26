@@ -68,8 +68,8 @@ func _physics_process(delta: float) -> void:
 			or Input.is_action_just_pressed("quit")):
 			var scene_path = LevelData.LEVEL_PATH + str(LevelData.level) + ".tscn"
 			var game_scene = load(scene_path).instantiate()
+			get_parent().get_parent().queue_free()
 			get_tree().root.add_child(game_scene)
-			get_parent().queue_free()
 		# look_at(ragdoll_instance.global_position)
 		# camera.look_at(ragdoll_instance.global_position)
 		

@@ -26,7 +26,7 @@ func _process(delta: float) -> void:
 		var camera_vector := camera_3d.get_global_transform().basis.z
 		var ball_position := camera_3d.global_position - camera_vector * placement_distance
 		currentPhantomBall.position = ball_position
-	if Input.is_action_just_released("game_ball"):
+	if Input.is_action_just_released("game_ball") and currentPhantomBall != null:
 		ammo -= 1
 		var new_ball = GRAV_BALL.instantiate()
 		new_ball.global_position = currentPhantomBall.global_position
