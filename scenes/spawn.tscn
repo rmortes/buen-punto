@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://bouo6sf3vc5ew"]
+
+[ext_resource type="PackedScene" uid="uid://bwxvk8nd6r0b" path="res://assets/terrain/camapana.glb" id="2_4xocc"]
+[ext_resource type="PackedScene" uid="uid://bast1ne0qplqc" path="res://assets/terrain/puerta-camapana2.glb" id="3_xtvsr"]
+[ext_resource type="PackedScene" uid="uid://bgqj3ro1ycn7s" path="res://assets/terrain/puerta-camapana1.glb" id="4_tfttj"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gwlqh"]
+size = Vector3(1, 0.0517578, 1)
+
+[node name="Capsule" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0639206, 0, 0)
+
+[node name="camapana2" parent="." instance=ExtResource("2_4xocc")]
+transform = Transform3D(1.3, 0, 0, 0, -5.68248e-08, 1.3, 0, -1.3, -5.68248e-08, 0, 2.72443, 0)
+
+[node name="puerta-camapana2" parent="camapana2" instance=ExtResource("3_xtvsr")]
+
+[node name="Skeleton3D" parent="camapana2/puerta-camapana2/puerta2" index="0"]
+bones/0/rotation = Quaternion(0.707046, 0.00925574, 0.00925574, 0.707046)
+bones/1/rotation = Quaternion(0.707046, -0.00925574, -0.00925574, 0.707046)
+
+[node name="AnimationPlayer" parent="camapana2/puerta-camapana2" index="1"]
+autoplay = "abrete sesamo_001"
+
+[node name="puerta-camapana1" parent="camapana2" instance=ExtResource("4_tfttj")]
+
+[node name="AnimationPlayer" parent="camapana2/puerta-camapana1" index="1"]
+autoplay = "abrete sesamo_001"
+
+[node name="StaticBody3D" type="StaticBody3D" parent="camapana2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="camapana2/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.12679, -0.952778)
+shape = SubResource("BoxShape3D_gwlqh")
+
+[editable path="camapana2/puerta-camapana2"]
+[editable path="camapana2/puerta-camapana1"]
