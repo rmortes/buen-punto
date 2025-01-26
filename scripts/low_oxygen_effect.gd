@@ -30,10 +30,8 @@ func _process(delta):
 		var value = calculate_increment(time_left, danger_threshold_start, max_value)
 		self.material.set_shader_parameter("EffectStrength", value if can_die else 0)
 	if oxygen_timer.time_left < 0.1:
-		var scene_path = LevelData.LEVEL_PATH + str(LevelData.level) + ".tscn"
-		var game_scene = load(scene_path).instantiate()
-		get_tree().root.add_child(game_scene)
-		player.get_parent().queue_free()
+		$"../../..".die()
+		self.material.set_shader_parameter("EffectStrength", 0)
 
 func calculate_increment(time_left: float, time_start: float, max_value: float) -> float:
 	# Calcula la proporción del tiempo restante
