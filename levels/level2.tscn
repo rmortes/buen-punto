@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://co8qu0ls7wet6" path="res://assets/skybox_material/Spacebox.png" id="2_k6lkf"]
 [ext_resource type="PackedScene" uid="uid://cedvs0kn462ks" path="res://scenes/bubble.tscn" id="3_xxdsb"]
 [ext_resource type="PackedScene" path="res://components/grav_ball/collectable_ball.tscn" id="4_baq73"]
-[ext_resource type="PackedScene" uid="uid://drk5it48qvh2r" path="res://scenes/capsule.tscn" id="5_er745"]
+[ext_resource type="PackedScene" uid="uid://csihci1noles1" path="res://scenes/capsule.tscn" id="5_er745"]
 [ext_resource type="Script" path="res://scripts/fade_in.gd" id="6_4b644"]
 [ext_resource type="Script" path="res://scripts/color_rect.gd" id="7_ihw75"]
 
@@ -56,6 +56,7 @@ size = Vector3(2497.62, 0.001, 2581.3)
 
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_lsure")
+level = 2
 
 [node name="Player" parent="." instance=ExtResource("1_butoy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -21.2208)

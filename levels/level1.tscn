@@ -9,7 +9,7 @@
 [ext_resource type="Script" path="res://scripts/fade_in.gd" id="6_g4p3c"]
 [ext_resource type="PackedScene" uid="uid://csihci1noles1" path="res://scenes/capsule.tscn" id="7_p25v7"]
 [ext_resource type="Script" path="res://scripts/color_rect.gd" id="8_sjgqu"]
-[ext_resource type="PackedScene" uid="uid://bouo6sf3vc5ew" path="res://scenes/spawn.tscn" id="9_ib351"]
+[ext_resource type="PackedScene" path="res://scenes/spawn.tscn" id="9_ib351"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_q3n03"]
 panorama = ExtResource("3_0marq")
