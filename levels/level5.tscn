@@ -25,9 +25,9 @@
 [ext_resource type="PackedScene" uid="uid://d5y7ck7foip" path="res://assets/terrain/tanque.glb" id="23_1s6ap"]
 [ext_resource type="PackedScene" uid="uid://5chc26ks5boh" path="res://assets/terrain/placas/plataforma1.glb" id="24_xx6s8"]
 [ext_resource type="PackedScene" uid="uid://byfomkrbdriy0" path="res://assets/terrain/placas/plat7.glb" id="25_c5bjp"]
-[ext_resource type="PackedScene" uid="uid://cjwheed6ygvqj" path="res://assets/terrain/pedrolos/pedrolo_4.tscn" id="27_t0os6"]
+[ext_resource type="PackedScene" path="res://assets/terrain/pedrolos/pedrolo_4.tscn" id="27_t0os6"]
 [ext_resource type="PackedScene" uid="uid://bf4lje5xjn5o2" path="res://assets/terrain/torrecita.glb" id="28_uipto"]
-[ext_resource type="PackedScene" uid="uid://b5affv6u6puwa" path="res://assets/terrain/pedrolos/pedrolo_5.tscn" id="29_i4qeo"]
+[ext_resource type="PackedScene" path="res://assets/terrain/pedrolos/pedrolo_5.tscn" id="29_i4qeo"]
 [ext_resource type="PackedScene" uid="uid://cgghca83h2g4l" path="res://assets/terrain/escombros/escombro4.glb" id="30_8u3ss"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_q3n03"]
@@ -49,6 +49,7 @@ size = Vector3(236.926, 0.001, 293.956)
 
 [node name="Node3D2" type="Node3D"]
 script = ExtResource("1_tooek")
+level = 5
 
 [node name="Player" parent="." instance=ExtResource("1_vm66x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.463799, 0.507374, -1.13271)
