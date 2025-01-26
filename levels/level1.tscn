@@ -1,13 +1,14 @@
-[gd_scene load_steps=21 format=3 uid="uid://bah68hxi30kdb"]
+[gd_scene load_steps=22 format=3 uid="uid://bah68hxi30kdb"]
 
 [ext_resource type="Script" path="res://scripts/ded.gd" id="1_tooek"]
 [ext_resource type="PackedScene" uid="uid://cqtyh0ki2darr" path="res://assets/player/player.tscn" id="1_vm66x"]
 [ext_resource type="Texture2D" uid="uid://co8qu0ls7wet6" path="res://assets/skybox_material/Spacebox.png" id="3_0marq"]
 [ext_resource type="PackedScene" uid="uid://cedvs0kn462ks" path="res://scenes/bubble.tscn" id="4_pjara"]
-[ext_resource type="PackedScene" path="res://components/grav_ball/collectable_ball.tscn" id="5_urojk"]
+[ext_resource type="PackedScene" uid="uid://bexknyicuyho3" path="res://components/grav_ball/collectable_ball.tscn" id="5_urojk"]
 [ext_resource type="Script" path="res://scripts/fade_in.gd" id="6_g4p3c"]
-[ext_resource type="PackedScene" uid="uid://drk5it48qvh2r" path="res://scenes/capsule.tscn" id="7_p25v7"]
+[ext_resource type="PackedScene" uid="uid://csihci1noles1" path="res://scenes/capsule.tscn" id="7_p25v7"]
 [ext_resource type="Script" path="res://scripts/color_rect.gd" id="8_sjgqu"]
+[ext_resource type="PackedScene" uid="uid://bouo6sf3vc5ew" path="res://scenes/spawn.tscn" id="9_ib351"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_q3n03"]
 panorama = ExtResource("3_0marq")
@@ -949,5 +950,8 @@ grow_vertical = 2
 color = Color(0.0962047, 0.0962048, 0.0962047, 1)
 script = ExtResource("8_sjgqu")
 fade_duration = 0.8
+
+[node name="Capsule2" parent="." instance=ExtResource("9_ib351")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.40853, 0.592895, -0.495495)
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

@@ -1,13 +1,18 @@
-[gd_scene load_steps=21 format=3 uid="uid://b13240d3vfsxf"]
+[gd_scene load_steps=26 format=3 uid="uid://b13240d3vfsxf"]
 
 [ext_resource type="Script" path="res://scripts/ded.gd" id="1_3jdg6"]
 [ext_resource type="PackedScene" uid="uid://cqtyh0ki2darr" path="res://assets/player/player.tscn" id="1_pwoju"]
 [ext_resource type="Texture2D" uid="uid://co8qu0ls7wet6" path="res://assets/skybox_material/Spacebox.png" id="2_tea85"]
 [ext_resource type="PackedScene" uid="uid://cedvs0kn462ks" path="res://scenes/bubble.tscn" id="3_yjfhg"]
-[ext_resource type="PackedScene" path="res://components/grav_ball/collectable_ball.tscn" id="4_yj05k"]
+[ext_resource type="PackedScene" uid="uid://bexknyicuyho3" path="res://components/grav_ball/collectable_ball.tscn" id="4_yj05k"]
 [ext_resource type="PackedScene" uid="uid://drk5it48qvh2r" path="res://scenes/capsule.tscn" id="5_y6cl1"]
 [ext_resource type="Script" path="res://scripts/fade_in.gd" id="6_qsha3"]
 [ext_resource type="Script" path="res://scripts/color_rect.gd" id="7_vy2ft"]
+[ext_resource type="PackedScene" uid="uid://bj4t86ggxjoha" path="res://assets/terrain/pedrolo2.glb" id="9_6bkv3"]
+[ext_resource type="PackedScene" uid="uid://5chc26ks5boh" path="res://assets/terrain/plataforma1.glb" id="10_36ug8"]
+[ext_resource type="PackedScene" uid="uid://bowtcd48852p3" path="res://assets/terrain/plat2.glb" id="11_p2y2e"]
+[ext_resource type="PackedScene" uid="uid://becn762jxyv5s" path="res://assets/terrain/plat1.glb" id="12_m3ivg"]
+[ext_resource type="PackedScene" uid="uid://14x5k7defuvp" path="res://assets/terrain/pedrolo1.glb" id="13_0y8q8"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_onmyc"]
 panorama = ExtResource("2_tea85")
@@ -25,8 +30,6 @@ sky = SubResource("Sky_wuo5y")
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_l1c62"]
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_uj8cn"]
-
 [sub_resource type="SphereShape3D" id="SphereShape3D_mnlcj"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_5giai"]
@@ -34,6 +37,8 @@ sky = SubResource("Sky_wuo5y")
 [sub_resource type="BoxShape3D" id="BoxShape3D_c655r"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_xfkh5"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_uj8cn"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0fh28"]
 size = Vector3(2497.62, 0.001, 1819.21)
@@ -67,9 +72,6 @@ transform = Transform3D(7.29, 0, 0, 0, 7.29, 0, 0, 0, 7.29, 2.76014, -6.74379, -
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0292439, 0)
 shape = SubResource("CylinderShape3D_l1c62")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="TubeObject"]
-mesh = SubResource("CylinderMesh_uj8cn")
-
 [node name="SphereObject" type="StaticBody3D" parent="." groups=["scene_manager_entity_nodes"]]
 transform = Transform3D(72.8009, 0, 53.0173, 0, 90.06, 0, -53.0173, 0, 72.8009, -20.6446, -40.3894, -102.068)
 
@@ -86,10 +88,6 @@ transform = Transform3D(35.25, 0, 0, 0, 35.25, 0, 0, 0, 35.25, 0, -17.1942, 2.10
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.000384033, 0)
 shape = SubResource("BoxShape3D_c655r")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="BoxObject2"]
-mesh = SubResource("BoxMesh_xfkh5")
-skeleton = NodePath("../../BoxObject2")
-
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.995955, 0.0898504, 0, -0.00779973, 0.0864568, 0.996225, 0.0895112, -0.992196, 0.086808, 0, 66.3084, 0)
 
@@ -100,10 +98,6 @@ transform = Transform3D(16.635, 0, 0, 0, 16.635, 0, 0, 0, 16.635, -9.27371, -0.4
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.000384033, 0)
 shape = SubResource("BoxShape3D_c655r")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="BoxObject3"]
-mesh = SubResource("BoxMesh_xfkh5")
-skeleton = NodePath("../../BoxObject2")
-
 [node name="BoxObject4" type="StaticBody3D" parent="." groups=["scene_manager_entity_nodes"]]
 transform = Transform3D(13.335, 0, 0, 0, 13.335, 0, 0, 0, 13.335, 3.49737, -2.75128, 14.8875)
 
@@ -111,18 +105,11 @@ transform = Transform3D(13.335, 0, 0, 0, 13.335, 0, 0, 0, 13.335, 3.49737, -2.75
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.000384033, 0)
 shape = SubResource("BoxShape3D_c655r")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="BoxObject4"]
-mesh = SubResource("BoxMesh_xfkh5")
-skeleton = NodePath("../../BoxObject2")
-
 [node name="SphereObject2" type="StaticBody3D" parent="." groups=["scene_manager_entity_nodes"]]
 transform = Transform3D(61.02, 0, 0, 0, 61.02, 0, 0, 0, 61.02, -3.15718, -28.6143, 14.7364)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SphereObject2"]
 shape = SubResource("SphereShape3D_mnlcj")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="SphereObject2"]
-mesh = SubResource("SphereMesh_5giai")
 
 [node name="BoxObject5" type="StaticBody3D" parent="." groups=["scene_manager_entity_nodes"]]
 transform = Transform3D(28.4947, 0, 20.7513, 0, 35.25, 0, -20.7513, 0, 28.4947, 6.84514, -18.9074, -87.7612)
@@ -1032,5 +1019,29 @@ grow_vertical = 2
 color = Color(0.0962047, 0.0962048, 0.0962047, 1)
 script = ExtResource("7_vy2ft")
 fade_duration = 0.8
+
+[node name="pedrolo2" parent="." instance=ExtResource("9_6bkv3")]
+transform = Transform3D(3.18442, 0, 0, 0, -2.93023, 0, 0, 0, 2.94865, -5.35267, -7.27965, 27.0532)
+
+[node name="plataforma1" parent="." instance=ExtResource("10_36ug8")]
+transform = Transform3D(0.99228, 0.00389331, 0.123956, 0, 0.999507, -0.0313933, -0.124017, 0.031151, 0.991791, 1.80999, 0.40348, -12.3993)
+
+[node name="plat2" parent="." instance=ExtResource("11_p2y2e")]
+transform = Transform3D(1, 0, 0, 0, 0.00520103, 0.999986, 0, -0.999986, 0.00520103, 0.789279, 0.417264, -7.27181)
+
+[node name="plat1" parent="." instance=ExtResource("12_m3ivg")]
+transform = Transform3D(1.30507, 0, 0, 0, 0.156964, 0.977261, 0, -1.20757, 0.127028, 0.27985, 0.417264, -1.88608)
+
+[node name="pedrolo1" parent="." instance=ExtResource("13_0y8q8")]
+transform = Transform3D(0.435781, 0, -0.900053, 0, 1, 0, 0.900053, 0, 0.435781, -20.1193, 0.884859, 12.4558)
+
+[node name="pedrolo3" parent="." instance=ExtResource("9_6bkv3")]
+transform = Transform3D(1, 0, 0, 0, -0.135664, -0.990755, 0, 0.990755, -0.135664, -9.01102, 10.4301, 10.43)
+
+[node name="pedrolo4" parent="." instance=ExtResource("9_6bkv3")]
+transform = Transform3D(0.645977, 0, 0.763357, 0, 1, 0, -0.763357, 0, 0.645977, -20.243, 11.5156, 23.9017)
+
+[node name="pedrolo5" parent="." instance=ExtResource("9_6bkv3")]
+transform = Transform3D(0.764833, 0, 0, 0, 0.998845, 0, 0, 0, 0.998845, 4.39556, 13.7657, 15.6391)
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

@@ -1,12 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://drk5it48qvh2r"]
+[gd_scene load_steps=9 format=3 uid="uid://csihci1noles1"]
 
 [ext_resource type="Script" path="res://scripts/capsule.gd" id="1_5aqgi"]
+[ext_resource type="PackedScene" uid="uid://bwxvk8nd6r0b" path="res://assets/terrain/camapana.glb" id="2_vw166"]
+[ext_resource type="PackedScene" uid="uid://bast1ne0qplqc" path="res://assets/terrain/puerta-camapana2.glb" id="3_6r8mq"]
+[ext_resource type="PackedScene" uid="uid://bgqj3ro1ycn7s" path="res://assets/terrain/puerta-camapana1.glb" id="4_es81f"]
+[ext_resource type="AudioStream" uid="uid://b668tdqx1skhd" path="res://assets/sounds/jejeje.mp3" id="5_j1g1a"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_54xw0"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_ek48y"]
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_sc0ey"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_18b56"]
+size = Vector3(1, 0.0517578, 1)
 
 [node name="Capsule" type="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0639206, 0, 0)
@@ -15,9 +20,6 @@ script = ExtResource("1_5aqgi")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1.025, 0, 0, 0, 1.025, 0, 0, 0, 1.025, 0, 0, 0)
 shape = SubResource("BoxShape3D_54xw0")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("BoxMesh_ek48y")
 
 [node name="Area3D" type="Area3D" parent="."]
 
@@ -28,5 +30,32 @@ shape = SubResource("BoxShape3D_sc0ey")
 [node name="Timer" type="Timer" parent="."]
 autostart = true
 
+[node name="camapana2" parent="." instance=ExtResource("2_vw166")]
+transform = Transform3D(1.3, 0, 0, 0, -5.68248e-08, 1.3, 0, -1.3, -5.68248e-08, 0, 2.77282, 0)
+
+[node name="puerta-camapana2" parent="camapana2" instance=ExtResource("3_6r8mq")]
+
+[node name="AnimationPlayer" parent="camapana2/puerta-camapana2" index="1"]
+autoplay = "abrete sesamo_001"
+
+[node name="puerta-camapana1" parent="camapana2" instance=ExtResource("4_es81f")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="camapana2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="camapana2/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.17037, -0.952778)
+shape = SubResource("BoxShape3D_18b56")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.987539, 5.39045, -0.976922)
+stream = ExtResource("5_j1g1a")
+volume_db = -20.0
+autoplay = true
+stream_paused = true
+max_distance = 40.0
+
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+
+[editable path="camapana2/puerta-camapana2"]
+[editable path="camapana2/puerta-camapana1"]
