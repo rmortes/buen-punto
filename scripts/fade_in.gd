@@ -25,7 +25,6 @@ func _process(delta):
 			
 
 func start_fade_out(level_path : String):
-	print("INICIANDO TRANSICION")
 	scene_path = level_path
 	self.show()
 	fade = true

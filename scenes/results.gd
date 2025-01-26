@@ -6,6 +6,7 @@ extends Control
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	LevelData.level_fading = false
 	var minutes = LevelData.level_time / 60
 	var seconds = LevelData.level_time % 60
 	label_2.text = str(minutes) + ":" + str(seconds)
