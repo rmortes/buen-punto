@@ -51,10 +51,17 @@ func die() -> void:
 		for c in ragdoll_instance.get_child(0).get_child(0).get_children():
 			if c is PhysicalBone3D:
 				c.apply_central_impulse(velocity)
-
+				
+func tryContinue() -> void:
+	if ragdoll_instance != null:
+		var scene_path = LevelData.LEVEL_PATH + str(LevelData.level) + ".tscn"
+		var game_scene = load(scene_path).instantiate()
+		get_parent().get_parent().queue_free()
+		get_tree().root.add_child(game_scene)
 
 func _physics_process(delta: float) -> void:
 	# if is ded
+	Engine.time_scale = 1
 	if ragdoll_instance != null:
 		velocity = Vector3.ZERO
 		Engine.time_scale = 0.5
@@ -166,7 +173,7 @@ func _process(delta: float):
 		camera.rotate_x(-yAxis * delta * JOY_ROTATION_MULTIPLIER/2)
 		camera.rotation.x = clampf(camera.rotation.x, -deg_to_rad(70), deg_to_rad(70))
 	
-	if prev_speed and prev_speed - velocity.length() > 10:
+	if prev_speed and prev_speed - velocity.length() > 10 and ragdoll_instance == null:
 		var shoutI = randi_range(0, len(shouts)-1)
 		var shout = shouts[shoutI]
 		SoundManager.play_sound(shout[0], "Voice").finished.connect(func(): $Camera/CanvasLayer/Subtitulos.text = '')

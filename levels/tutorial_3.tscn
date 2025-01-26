@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dd1xvvxfmg0wp"]
+[gd_scene load_steps=16 format=3 uid="uid://bywelqqhjdm14"]
 
 [ext_resource type="Script" path="res://scripts/ded.gd" id="1_vvoav"]
 [ext_resource type="PackedScene" uid="uid://cqtyh0ki2darr" path="res://assets/player/player.tscn" id="2_8trav"]
@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://csihci1noles1" path="res://scenes/capsule.tscn" id="5_b4v2v"]
 [ext_resource type="Script" path="res://scripts/fade_in.gd" id="6_a46x4"]
 [ext_resource type="Script" path="res://scripts/color_rect.gd" id="7_5isst"]
-[ext_resource type="PackedScene" path="res://scenes/spawn.tscn" id="8_xjnox"]
+[ext_resource type="PackedScene" uid="uid://bouo6sf3vc5ew" path="res://scenes/spawn.tscn" id="8_xjnox"]
 [ext_resource type="PackedScene" uid="uid://c45kj8emrirwv" path="res://assets/terrain/antena.glb" id="9_dkm21"]
 [ext_resource type="PackedScene" uid="uid://6r51jirvlm33" path="res://components/grav_ball/grav_ball.tscn" id="10_bngkw"]
 [ext_resource type="PackedScene" uid="uid://14x5k7defuvp" path="res://assets/terrain/pedrolos/pedrolo1.glb" id="11_uk15n"]
@@ -23,12 +23,8 @@ sky_material = SubResource("PanoramaSkyMaterial_q3n03")
 background_mode = 2
 sky = SubResource("Sky_w2exd")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_pe33b"]
-size = Vector3(314.567, 0.001, 489.179)
-
 [node name="Node3D2" type="Node3D"]
 script = ExtResource("1_vvoav")
-level = 3
 
 [node name="Player" parent="." instance=ExtResource("2_8trav")]
 transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -0.311672, 1.95113, -25.8504)
@@ -91,11 +87,3 @@ transform = Transform3D(1, 0, 0, 0, -0.965926, 0.258819, 0, -0.258819, -0.965926
 
 [node name="pedrolo2" parent="." instance=ExtResource("11_uk15n")]
 transform = Transform3D(1, 0, 0, 0, -0.984494, -0.175418, 0, 0.175418, -0.984494, -39.1565, 16.6642, -50.03)
-
-[node name="Area3D" type="Area3D" parent="."]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.8673, -29.2254, -48.8666)
-shape = SubResource("BoxShape3D_pe33b")
-
-[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

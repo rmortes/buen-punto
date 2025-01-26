@@ -1,8 +1,8 @@
-[gd_scene load_steps=19 format=3 uid="uid://cc6n2g8a7qipc"]
+[gd_scene load_steps=18 format=3 uid="uid://4kxovhv5soim"]
 
 [ext_resource type="Script" path="res://scripts/ded.gd" id="1_dac0f"]
 [ext_resource type="PackedScene" uid="uid://cqtyh0ki2darr" path="res://assets/player/player.tscn" id="2_cyrfa"]
-[ext_resource type="PackedScene" path="res://scenes/spawn.tscn" id="3_af6ij"]
+[ext_resource type="PackedScene" uid="uid://bouo6sf3vc5ew" path="res://scenes/spawn.tscn" id="3_af6ij"]
 [ext_resource type="Texture2D" uid="uid://co8qu0ls7wet6" path="res://assets/skybox_material/Spacebox.png" id="4_8p2d1"]
 [ext_resource type="PackedScene" uid="uid://cedvs0kn462ks" path="res://scenes/bubble.tscn" id="5_hb2sw"]
 [ext_resource type="PackedScene" uid="uid://csihci1noles1" path="res://scenes/capsule.tscn" id="6_qao6e"]
@@ -10,7 +10,7 @@
 [ext_resource type="Script" path="res://scripts/color_rect.gd" id="8_l6758"]
 [ext_resource type="PackedScene" uid="uid://becn762jxyv5s" path="res://assets/terrain/placas/plat1.glb" id="9_hljtf"]
 [ext_resource type="PackedScene" uid="uid://dv13m7ean1ox3" path="res://assets/terrain/escombros/escombro1.glb" id="9_jbrck"]
-[ext_resource type="PackedScene" path="res://components/grav_ball/collectable_ball.tscn" id="11_4yp88"]
+[ext_resource type="PackedScene" uid="uid://bexknyicuyho3" path="res://components/grav_ball/collectable_ball.tscn" id="11_4yp88"]
 [ext_resource type="Script" path="res://addons/controller_icons/objects/ControllerIconTexture.gd" id="12_f5587"]
 [ext_resource type="PackedScene" uid="uid://14x5k7defuvp" path="res://assets/terrain/pedrolos/pedrolo1.glb" id="12_jicv6"]
 
@@ -32,12 +32,8 @@ path = "game_ball"
 show_mode = 0
 force_type = 0
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_hol75"]
-size = Vector3(355.604, 0.001, 370.619)
-
 [node name="Node3D2" type="Node3D"]
 script = ExtResource("1_dac0f")
-level = 4
 
 [node name="Player" parent="." instance=ExtResource("2_cyrfa")]
 transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -0.311672, 1.95113, -25.8504)
@@ -155,11 +151,3 @@ transform = Transform3D(-0.958676, -0.284501, 0, 0.284501, -0.958676, 0, 0, 0, 1
 
 [node name="pedrolo2" parent="." instance=ExtResource("12_jicv6")]
 transform = Transform3D(-0.992029, -0.126008, 1.82153e-09, 0.125273, -0.986242, -0.107861, 0.0135913, -0.107001, 0.994166, -39.1062, 39.3127, -59.9295)
-
-[node name="Area3D" type="Area3D" parent="."]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3485, -29.2254, -60.84)
-shape = SubResource("BoxShape3D_hol75")
-
-[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
