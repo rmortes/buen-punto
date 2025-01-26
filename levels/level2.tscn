@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://ceiwb0bt6h5vo"]
+[gd_scene load_steps=27 format=3 uid="uid://ceiwb0bt6h5vo"]
 
 [ext_resource type="Script" path="res://scripts/ded.gd" id="1_wgetl"]
 [ext_resource type="PackedScene" uid="uid://cqtyh0ki2darr" path="res://assets/player/player.tscn" id="2_txubb"]
@@ -32,6 +32,9 @@ sky_material = SubResource("PanoramaSkyMaterial_q3n03")
 [sub_resource type="Environment" id="Environment_5w4k4"]
 background_mode = 2
 sky = SubResource("Sky_w2exd")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8k5u2"]
+size = Vector3(236.926, 0.001, 293.956)
 
 [node name="Node3D2" type="Node3D"]
 script = ExtResource("1_wgetl")
@@ -179,3 +182,11 @@ transform = Transform3D(-0.539663, 0.327597, 0.775528, -0.0162411, 0.916963, -0.
 
 [node name="escombrao" parent="." instance=ExtResource("11_vy4hi")]
 transform = Transform3D(1.5399, 0, 0, 0, 1, 0, 0, 0, 1.57538, -8.33512, 2.24002, -35.5765)
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.8445, -29.2254, -17.7084)
+shape = SubResource("BoxShape3D_8k5u2")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

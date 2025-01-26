@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cc6n2g8a7qipc"]
+[gd_scene load_steps=19 format=3 uid="uid://cc6n2g8a7qipc"]
 
 [ext_resource type="Script" path="res://scripts/ded.gd" id="1_dac0f"]
 [ext_resource type="PackedScene" uid="uid://cqtyh0ki2darr" path="res://assets/player/player.tscn" id="2_cyrfa"]
@@ -31,6 +31,9 @@ script = ExtResource("12_f5587")
 path = "game_ball"
 show_mode = 0
 force_type = 0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hol75"]
+size = Vector3(355.604, 0.001, 370.619)
 
 [node name="Node3D2" type="Node3D"]
 script = ExtResource("1_dac0f")
@@ -152,3 +155,11 @@ transform = Transform3D(-0.958676, -0.284501, 0, 0.284501, -0.958676, 0, 0, 0, 1
 
 [node name="pedrolo2" parent="." instance=ExtResource("12_jicv6")]
 transform = Transform3D(-0.992029, -0.126008, 1.82153e-09, 0.125273, -0.986242, -0.107861, 0.0135913, -0.107001, 0.994166, -39.1062, 39.3127, -59.9295)
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3485, -29.2254, -60.84)
+shape = SubResource("BoxShape3D_hol75")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
