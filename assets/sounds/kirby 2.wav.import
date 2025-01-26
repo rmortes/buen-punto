@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ddq0fcb5i8k6d"
+path="res://.godot/imported/kirby 2.wav-0f3a6a347ad604986d58bc2cdb9ab2c8.sample"
+
+[deps]
+
+source_file="res://assets/sounds/kirby 2.wav"
+dest_files=["res://.godot/imported/kirby 2.wav-0f3a6a347ad604986d58bc2cdb9ab2c8.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

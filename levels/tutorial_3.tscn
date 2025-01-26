@@ -1,0 +1,89 @@
+[gd_scene load_steps=16 format=3 uid="uid://dd1xvvxfmg0wp"]
+
+[ext_resource type="Script" path="res://scripts/ded.gd" id="1_vvoav"]
+[ext_resource type="PackedScene" uid="uid://cqtyh0ki2darr" path="res://assets/player/player.tscn" id="2_8trav"]
+[ext_resource type="Texture2D" uid="uid://co8qu0ls7wet6" path="res://assets/skybox_material/Spacebox.png" id="3_lvmxu"]
+[ext_resource type="PackedScene" uid="uid://cedvs0kn462ks" path="res://scenes/bubble.tscn" id="4_f03g7"]
+[ext_resource type="PackedScene" uid="uid://csihci1noles1" path="res://scenes/capsule.tscn" id="5_b4v2v"]
+[ext_resource type="Script" path="res://scripts/fade_in.gd" id="6_a46x4"]
+[ext_resource type="Script" path="res://scripts/color_rect.gd" id="7_5isst"]
+[ext_resource type="PackedScene" uid="uid://bouo6sf3vc5ew" path="res://scenes/spawn.tscn" id="8_xjnox"]
+[ext_resource type="PackedScene" uid="uid://c45kj8emrirwv" path="res://assets/terrain/antena.glb" id="9_dkm21"]
+[ext_resource type="PackedScene" uid="uid://6r51jirvlm33" path="res://components/grav_ball/grav_ball.tscn" id="10_bngkw"]
+[ext_resource type="PackedScene" uid="uid://14x5k7defuvp" path="res://assets/terrain/pedrolos/pedrolo1.glb" id="11_uk15n"]
+[ext_resource type="PackedScene" uid="uid://b8q5r1vc4kl0q" path="res://assets/terrain/placas/plat4.glb" id="11_yubn8"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_q3n03"]
+panorama = ExtResource("3_lvmxu")
+
+[sub_resource type="Sky" id="Sky_w2exd"]
+sky_material = SubResource("PanoramaSkyMaterial_q3n03")
+
+[sub_resource type="Environment" id="Environment_5w4k4"]
+background_mode = 2
+sky = SubResource("Sky_w2exd")
+
+[node name="Node3D2" type="Node3D"]
+script = ExtResource("1_vvoav")
+
+[node name="Player" parent="." instance=ExtResource("2_8trav")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -0.311672, 1.95113, -25.8504)
+
+[node name="Capsule2" parent="." instance=ExtResource("8_xjnox")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 0.0049242, 1.12808, -25.571)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_5w4k4")
+
+[node name="Bubble" parent="." instance=ExtResource("4_f03g7")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.127543, 11.9979, -37.216)
+
+[node name="Bubble2" parent="." instance=ExtResource("4_f03g7")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -11.4899, 26.0473, -50.3258)
+
+[node name="Capsule" parent="." instance=ExtResource("5_b4v2v")]
+transform = Transform3D(-0.558707, 0.0383415, 0.828478, -0.0355874, 0.996902, -0.0701353, -0.828601, -0.0686685, -0.555612, -42.4225, 23.6174, -45.2914)
+
+[node name="FadeIn" type="ColorRect" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0962047, 0.0962048, 0.0962047, 1)
+script = ExtResource("6_a46x4")
+
+[node name="FadeOut" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0962047, 0.0962048, 0.0962047, 1)
+script = ExtResource("7_5isst")
+fade_duration = 0.8
+
+[node name="antena" parent="." instance=ExtResource("9_dkm21")]
+transform = Transform3D(-4.20386, 0.591513, -3.66743e-07, 0.841062, 2.83012, 0.887284, 0.177761, 0.598155, -4.19812, -6.72361, 3.66212, -30.4488)
+
+[node name="GravBall" parent="." instance=ExtResource("10_bngkw")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -5.89027, 7.28821, -30.1513)
+unkillable = true
+
+[node name="GravBall3" parent="." instance=ExtResource("10_bngkw")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -22.1613, 25.5945, -51.9609)
+unkillable = true
+
+[node name="GravBall2" parent="." instance=ExtResource("10_bngkw")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.0602956, 15.3973, -40.7362)
+unkillable = true
+
+[node name="plat4" parent="." instance=ExtResource("11_yubn8")]
+transform = Transform3D(-1, 7.9467e-08, 3.64382e-08, 0, -0.416804, 0.908996, 8.74228e-08, 0.908996, 0.416804, -0.38768, 9.93062, -36.611)
+
+[node name="pedrolo1" parent="." instance=ExtResource("11_uk15n")]
+transform = Transform3D(1, 0, 0, 0, -0.965926, 0.258819, 0, -0.258819, -0.965926, -8.10504, 17.7065, -53.1458)
+
+[node name="pedrolo2" parent="." instance=ExtResource("11_uk15n")]
+transform = Transform3D(1, 0, 0, 0, -0.984494, -0.175418, 0, 0.175418, -0.984494, -39.1565, 16.6642, -50.03)
