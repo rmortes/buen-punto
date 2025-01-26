@@ -1,10 +1,11 @@
-[gd_scene load_steps=27 format=3 uid="uid://bah68hxi30kdb"]
+[gd_scene load_steps=29 format=3 uid="uid://bah68hxi30kdb"]
 
 [ext_resource type="Script" path="res://scripts/ded.gd" id="1_tooek"]
 [ext_resource type="PackedScene" uid="uid://cqtyh0ki2darr" path="res://assets/player/player.tscn" id="1_vm66x"]
 [ext_resource type="Texture2D" uid="uid://co8qu0ls7wet6" path="res://assets/skybox_material/Spacebox.png" id="3_0marq"]
 [ext_resource type="PackedScene" uid="uid://cedvs0kn462ks" path="res://scenes/bubble.tscn" id="4_pjara"]
 [ext_resource type="PackedScene" uid="uid://bexknyicuyho3" path="res://components/grav_ball/collectable_ball.tscn" id="5_urojk"]
+[ext_resource type="PackedScene" uid="uid://14x5k7defuvp" path="res://assets/terrain/pedrolos/pedrolo1.glb" id="5_wldel"]
 [ext_resource type="Script" path="res://scripts/fade_in.gd" id="6_g4p3c"]
 [ext_resource type="PackedScene" uid="uid://csihci1noles1" path="res://scenes/capsule.tscn" id="7_p25v7"]
 [ext_resource type="Script" path="res://scripts/color_rect.gd" id="8_sjgqu"]
@@ -13,6 +14,8 @@
 [ext_resource type="PackedScene" uid="uid://cew7o7be11ftw" path="res://assets/terrain/pedrolos/pedrolo3.glb" id="12_lxg3r"]
 [ext_resource type="PackedScene" uid="uid://dv13m7ean1ox3" path="res://assets/terrain/escombros/escombro1.glb" id="13_3joph"]
 [ext_resource type="PackedScene" uid="uid://bnkftp6n2lbyg" path="res://assets/terrain/escombros/escombrao.glb" id="14_g2dhv"]
+[ext_resource type="PackedScene" uid="uid://ofrk8fc75blt" path="res://assets/terrain/vigas/viga2.glb" id="15_sdnow"]
+[ext_resource type="PackedScene" uid="uid://j2cb01gu6hoj" path="res://assets/terrain/vigas/viga6.glb" id="15_yl8ce"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_q3n03"]
 panorama = ExtResource("3_0marq")
@@ -166,86 +169,6 @@ shape = SubResource("CylinderShape3D_n78ui")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="TubeObject9"]
 mesh = SubResource("CylinderMesh_b17oi")
-
-[node name="CilinderObject2" type="StaticBody3D" parent="." groups=["scene_manager_entity_nodes"]]
-transform = Transform3D(1.66471, 0.317611, -0.181898, -7.40539e-08, -0.847078, -1.47908, -0.36601, 1.44458, -0.827318, 2.31757, 3.91732, -72.2458)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CilinderObject2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0292439, 0)
-shape = SubResource("CapsuleShape3D_h8ya4")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="CilinderObject2"]
-mesh = SubResource("CapsuleMesh_slmke")
-
-[node name="CilinderObject3" type="StaticBody3D" parent="." groups=["scene_manager_entity_nodes"]]
-transform = Transform3D(1.66471, 0.317611, -0.181898, -7.40539e-08, -0.847078, -1.47908, -0.36601, 1.44458, -0.827318, 1.97535, 4.80465, -73.7871)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CilinderObject3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0292439, 0)
-shape = SubResource("CapsuleShape3D_h8ya4")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="CilinderObject3"]
-mesh = SubResource("CapsuleMesh_slmke")
-
-[node name="CilinderObject4" type="StaticBody3D" parent="." groups=["scene_manager_entity_nodes"]]
-transform = Transform3D(1.66471, 0.317611, -0.181898, -7.40539e-08, -0.847078, -1.47908, -0.36601, 1.44458, -0.827318, 1.71867, 5.4757, -74.9342)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CilinderObject4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0292439, 0)
-shape = SubResource("CapsuleShape3D_h8ya4")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="CilinderObject4"]
-mesh = SubResource("CapsuleMesh_slmke")
-
-[node name="CilinderObject5" type="StaticBody3D" parent="." groups=["scene_manager_entity_nodes"]]
-transform = Transform3D(1.66471, 0.317611, -0.181898, -7.40539e-08, -0.847078, -1.47908, -0.36601, 1.44458, -0.827318, 1.35886, 6.40748, -76.529)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CilinderObject5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0292439, 0)
-shape = SubResource("CapsuleShape3D_h8ya4")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="CilinderObject5"]
-mesh = SubResource("CapsuleMesh_slmke")
-
-[node name="CilinderObject6" type="StaticBody3D" parent="." groups=["scene_manager_entity_nodes"]]
-transform = Transform3D(1.66471, 0.317611, -0.181898, -7.40539e-08, -0.847078, -1.47908, -0.36601, 1.44458, -0.827318, 1.01212, 7.36093, -78.1564)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CilinderObject6"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0292439, 0)
-shape = SubResource("CapsuleShape3D_h8ya4")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="CilinderObject6"]
-mesh = SubResource("CapsuleMesh_slmke")
-
-[node name="CilinderObject8" type="StaticBody3D" parent="." groups=["scene_manager_entity_nodes"]]
-transform = Transform3D(1.66471, 0.317611, -0.181898, -7.40539e-08, -0.847078, -1.47908, -0.36601, 1.44458, -0.827318, 0.762415, 7.98501, -79.2325)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CilinderObject8"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0292439, 0)
-shape = SubResource("CapsuleShape3D_h8ya4")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="CilinderObject8"]
-mesh = SubResource("CapsuleMesh_slmke")
-
-[node name="CilinderObject9" type="StaticBody3D" parent="." groups=["scene_manager_entity_nodes"]]
-transform = Transform3D(1.66471, 0.317611, -0.181898, -7.40539e-08, -0.847078, -1.47908, -0.36601, 1.44458, -0.827318, 0.402604, 8.93028, -80.8273)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CilinderObject9"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0292439, 0)
-shape = SubResource("CapsuleShape3D_h8ya4")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="CilinderObject9"]
-mesh = SubResource("CapsuleMesh_slmke")
-
-[node name="CilinderObject10" type="StaticBody3D" parent="." groups=["scene_manager_entity_nodes"]]
-transform = Transform3D(1.66471, 0.349262, -0.109452, 0.0193086, -0.592799, -1.59795, -0.3655, 1.55943, -0.582927, 0.0558678, 9.7056, -82.4547)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CilinderObject10"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0292439, 0)
-shape = SubResource("CapsuleShape3D_h8ya4")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="CilinderObject10"]
-mesh = SubResource("CapsuleMesh_slmke")
 
 [node name="BoxObject36" type="StaticBody3D" parent="." groups=["scene_manager_entity_nodes"]]
 transform = Transform3D(6.345, 0, 0, 0, 6.19699, -1.3625, 0, 1.3625, 6.19699, 4.81065, -0.37872, -43.3418)
@@ -608,7 +531,7 @@ shape = SubResource("CapsuleShape3D_h8ya4")
 mesh = SubResource("CapsuleMesh_slmke")
 
 [node name="Bubble3" parent="." instance=ExtResource("4_pjara")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.25538, 5.63833, -69.8564)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.25538, 4.93811, -67.7004)
 
 [node name="Bubble2" parent="." instance=ExtResource("4_pjara")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.06046, 4.42204, -36.2084)
@@ -862,9 +785,15 @@ transform = Transform3D(2.2499, 0, 0, 0, -9.83463e-08, 2.2499, 0, -2.2499, -9.83
 transform = Transform3D(2.2499, 0, 0, 0, -9.83463e-08, 2.2499, 0, -2.2499, -9.83463e-08, -5.42965, -12.2073, -63.4078)
 
 [node name="escombro3" parent="." instance=ExtResource("13_3joph")]
-transform = Transform3D(2.2499, 0, 0, 0, -9.83463e-08, 2.2499, 0, -2.2499, -9.83463e-08, 1.84197, -9.20144, -69.1523)
+transform = Transform3D(2.2499, 0, 0, 0, -9.83463e-08, 2.2499, 0, -2.2499, -9.83463e-08, 1.84197, -9.90166, -66.9963)
 
 [node name="escombrao" parent="." instance=ExtResource("14_g2dhv")]
-transform = Transform3D(1.46387, 0, 0, 0, 1.46387, -1.19209e-07, 0, 1.19209e-07, 1.46387, 6.62722, 1.39995, -57.8095)
+transform = Transform3D(1.46248, 0.0313553, 0.0554218, -0.0194892, 1.43336, -0.296652, -0.060621, 0.295634, 1.43242, 6.62722, 1.62593, -58.5908)
+
+[node name="viga6" parent="." instance=ExtResource("15_yl8ce")]
+transform = Transform3D(0.999829, -0.0171325, 0.00693275, 0.00242102, 0.493284, 0.869865, -0.0183227, -0.8697, 0.493241, 0.21006, 8.64039, -78.7014)
+
+[node name="viga2" parent="." instance=ExtResource("15_sdnow")]
+transform = Transform3D(1, 0, 0, 0, -0.536195, -0.844094, 0, 0.844094, -0.536195, 0.158198, 5.12644, -72.6571)
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
