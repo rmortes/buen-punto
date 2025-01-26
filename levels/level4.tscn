@@ -1,0 +1,154 @@
+[gd_scene load_steps=18 format=3 uid="uid://cc6n2g8a7qipc"]
+
+[ext_resource type="Script" path="res://scripts/ded.gd" id="1_dac0f"]
+[ext_resource type="PackedScene" uid="uid://cqtyh0ki2darr" path="res://assets/player/player.tscn" id="2_cyrfa"]
+[ext_resource type="PackedScene" path="res://scenes/spawn.tscn" id="3_af6ij"]
+[ext_resource type="Texture2D" uid="uid://co8qu0ls7wet6" path="res://assets/skybox_material/Spacebox.png" id="4_8p2d1"]
+[ext_resource type="PackedScene" uid="uid://cedvs0kn462ks" path="res://scenes/bubble.tscn" id="5_hb2sw"]
+[ext_resource type="PackedScene" uid="uid://csihci1noles1" path="res://scenes/capsule.tscn" id="6_qao6e"]
+[ext_resource type="Script" path="res://scripts/fade_in.gd" id="7_7xkvy"]
+[ext_resource type="Script" path="res://scripts/color_rect.gd" id="8_l6758"]
+[ext_resource type="PackedScene" uid="uid://becn762jxyv5s" path="res://assets/terrain/placas/plat1.glb" id="9_hljtf"]
+[ext_resource type="PackedScene" uid="uid://dv13m7ean1ox3" path="res://assets/terrain/escombros/escombro1.glb" id="9_jbrck"]
+[ext_resource type="PackedScene" path="res://components/grav_ball/collectable_ball.tscn" id="11_4yp88"]
+[ext_resource type="Script" path="res://addons/controller_icons/objects/ControllerIconTexture.gd" id="12_f5587"]
+[ext_resource type="PackedScene" uid="uid://14x5k7defuvp" path="res://assets/terrain/pedrolos/pedrolo1.glb" id="12_jicv6"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_q3n03"]
+panorama = ExtResource("4_8p2d1")
+
+[sub_resource type="Sky" id="Sky_w2exd"]
+sky_material = SubResource("PanoramaSkyMaterial_q3n03")
+
+[sub_resource type="Environment" id="Environment_5w4k4"]
+background_mode = 2
+sky = SubResource("Sky_w2exd")
+
+[sub_resource type="Texture2D" id="Texture2D_bjyhw"]
+resource_local_to_scene = false
+resource_name = ""
+script = ExtResource("12_f5587")
+path = "game_ball"
+show_mode = 0
+force_type = 0
+
+[node name="Node3D2" type="Node3D"]
+script = ExtResource("1_dac0f")
+level = 4
+
+[node name="Player" parent="." instance=ExtResource("2_cyrfa")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -0.311672, 1.95113, -25.8504)
+
+[node name="Capsule2" parent="." instance=ExtResource("3_af6ij")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 0.0049242, 1.12808, -25.571)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_5w4k4")
+
+[node name="Bubble" parent="." instance=ExtResource("5_hb2sw")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.127543, 11.9979, -37.216)
+
+[node name="Bubble2" parent="." instance=ExtResource("5_hb2sw")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -26.7982, 11.2444, -35.7126)
+
+[node name="Bubble3" parent="." instance=ExtResource("5_hb2sw")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -40.4029, 16.3964, -36.7092)
+
+[node name="Bubble4" parent="." instance=ExtResource("5_hb2sw")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -39.1334, 21.9212, -40.7187)
+
+[node name="Bubble5" parent="." instance=ExtResource("5_hb2sw")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -31.5593, 21.9212, -34.4129)
+
+[node name="Bubble6" parent="." instance=ExtResource("5_hb2sw")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -38.8842, 26.157, -30.8421)
+
+[node name="Bubble7" parent="." instance=ExtResource("5_hb2sw")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -45.7003, 29.2978, -38.3401)
+
+[node name="Bubble8" parent="." instance=ExtResource("5_hb2sw")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -37.5122, 32.5515, -44.329)
+
+[node name="Bubble9" parent="." instance=ExtResource("5_hb2sw")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -27.7569, 34.5182, -36.135)
+
+[node name="Bubble10" parent="." instance=ExtResource("5_hb2sw")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -32.0655, 37.4846, -32.7024)
+
+[node name="Bubble11" parent="." instance=ExtResource("5_hb2sw")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -51.6766, 45.0641, -34.9443)
+
+[node name="Bubble12" parent="." instance=ExtResource("5_hb2sw")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -47.3771, 52.969, -43.3517)
+
+[node name="Bubble13" parent="." instance=ExtResource("5_hb2sw")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -39.596, 52.969, -46.5265)
+
+[node name="Capsule" parent="." instance=ExtResource("6_qao6e")]
+transform = Transform3D(0.825055, 0.0689094, 0.560835, -0.0355874, 0.996902, -0.0701353, -0.563931, 0.0379069, 0.824951, -42.4225, 45.7687, -62.1989)
+
+[node name="FadeIn" type="ColorRect" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0962047, 0.0962048, 0.0962047, 1)
+script = ExtResource("7_7xkvy")
+
+[node name="FadeOut" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0962047, 0.0962048, 0.0962047, 1)
+script = ExtResource("8_l6758")
+fade_duration = 0.8
+
+[node name="escombro1" parent="." instance=ExtResource("9_jbrck")]
+transform = Transform3D(-3.13815, 0, 2.74346e-07, 0, 3.13815, 0, -2.74346e-07, 0, -3.13815, 0.0012641, -3.41631, -38.3615)
+
+[node name="escombro2" parent="." instance=ExtResource("9_jbrck")]
+transform = Transform3D(-1.37173e-07, 0, -3.13815, 0, 3.13815, 0, 3.13815, 0, -1.37173e-07, -12.4433, 1.96728, -43.6636)
+
+[node name="plat1" parent="." instance=ExtResource("9_hljtf")]
+transform = Transform3D(-3.73084e-15, 1.95262, 8.53516e-08, 0.318476, -8.42087e-08, 1.92647, -1.92647, -1.3921e-08, 0.318476, -7.52492, 1.34566, -36.2453)
+
+[node name="plat2" parent="." instance=ExtResource("9_hljtf")]
+transform = Transform3D(-1.63455e-08, 2.24362, -3.18871e-07, -2.11179, 9.23092e-08, 0.757751, -0.757751, -3.05655e-07, -2.11179, -10.9281, 2.18681, -31.6555)
+
+[node name="plat3" parent="." instance=ExtResource("9_hljtf")]
+transform = Transform3D(-1.55748e-08, 2.24362, 4.5459e-07, -2.01221, 9.23091e-08, -1.08027, -0.722023, -3.05655e-07, 3.01061, -10.9281, 2.18681, -31.095)
+
+[node name="CollectableBall" parent="." instance=ExtResource("11_4yp88")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0122385, 2.96372, -30.8858)
+
+[node name="CollectableBall2" parent="." instance=ExtResource("11_4yp88")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -8.96139, 4.40775, -36.2875)
+
+[node name="CollectableBall3" parent="." instance=ExtResource("11_4yp88")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -38.2689, 13.5158, -36.2437)
+
+[node name="CollectableBall4" parent="." instance=ExtResource("11_4yp88")]
+transform = Transform3D(-0.833317, 0, 0.552795, 0, 1, 0, -0.552795, 0, -0.833317, -35.6848, 12.8558, -32.8002)
+
+[node name="CollectableBall6" parent="." instance=ExtResource("11_4yp88")]
+transform = Transform3D(0.760995, 0, 0.648758, 0, 1, 0, -0.648758, 0, 0.760995, -35.9168, 13.575, -37.8836)
+
+[node name="CollectableBall7" parent="." instance=ExtResource("11_4yp88")]
+transform = Transform3D(0.760995, 0, 0.648758, 0, 1, 0, -0.648758, 0, 0.760995, -33.7116, 13.575, -39.1968)
+
+[node name="CollectableBall5" parent="." instance=ExtResource("11_4yp88")]
+transform = Transform3D(-0.521427, 0, 0.853296, 0, 1, 0, -0.853296, 0, -0.521427, -37.8509, 12.8558, -33.6504)
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(-1.80014, -3.06936e-15, 1.57373e-07, 5.1651e-08, 1.70042, 0.590818, -1.48655e-07, 0.590818, -1.70042, -6.43863, 3.41996, -31.6552)
+texture = SubResource("Texture2D_bjyhw")
+
+[node name="pedrolo1" parent="." instance=ExtResource("12_jicv6")]
+transform = Transform3D(-0.958676, -0.284501, 0, 0.284501, -0.958676, 0, 0, 0, 1, -39.1062, 6.76275, -35.9903)
+
+[node name="pedrolo2" parent="." instance=ExtResource("12_jicv6")]
+transform = Transform3D(-0.992029, -0.126008, 1.82153e-09, 0.125273, -0.986242, -0.107861, 0.0135913, -0.107001, 0.994166, -39.1062, 39.3127, -59.9295)
