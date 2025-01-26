@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/ded.gd" id="1_dac0f"]
 [ext_resource type="PackedScene" uid="uid://cqtyh0ki2darr" path="res://assets/player/player.tscn" id="2_cyrfa"]
-[ext_resource type="PackedScene" uid="uid://bouo6sf3vc5ew" path="res://scenes/spawn.tscn" id="3_af6ij"]
+[ext_resource type="PackedScene" path="res://scenes/spawn.tscn" id="3_af6ij"]
 [ext_resource type="Texture2D" uid="uid://co8qu0ls7wet6" path="res://assets/skybox_material/Spacebox.png" id="4_8p2d1"]
 [ext_resource type="PackedScene" uid="uid://cedvs0kn462ks" path="res://scenes/bubble.tscn" id="5_hb2sw"]
 [ext_resource type="PackedScene" uid="uid://csihci1noles1" path="res://scenes/capsule.tscn" id="6_qao6e"]
@@ -10,7 +10,7 @@
 [ext_resource type="Script" path="res://scripts/color_rect.gd" id="8_l6758"]
 [ext_resource type="PackedScene" uid="uid://becn762jxyv5s" path="res://assets/terrain/placas/plat1.glb" id="9_hljtf"]
 [ext_resource type="PackedScene" uid="uid://dv13m7ean1ox3" path="res://assets/terrain/escombros/escombro1.glb" id="9_jbrck"]
-[ext_resource type="PackedScene" uid="uid://bexknyicuyho3" path="res://components/grav_ball/collectable_ball.tscn" id="11_4yp88"]
+[ext_resource type="PackedScene" path="res://components/grav_ball/collectable_ball.tscn" id="11_4yp88"]
 [ext_resource type="Script" path="res://addons/controller_icons/objects/ControllerIconTexture.gd" id="12_f5587"]
 [ext_resource type="PackedScene" uid="uid://14x5k7defuvp" path="res://assets/terrain/pedrolos/pedrolo1.glb" id="12_jicv6"]
 
@@ -34,6 +34,7 @@ force_type = 0
 
 [node name="Node3D2" type="Node3D"]
 script = ExtResource("1_dac0f")
+level = 4
 
 [node name="Player" parent="." instance=ExtResource("2_cyrfa")]
 transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -0.311672, 1.95113, -25.8504)
